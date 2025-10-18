@@ -1,0 +1,377 @@
+{
+  "framework": "lhs",
+  "config_spaces": [
+    {
+      "data_scale": "small",
+      "num_configs": 15,
+      "configurations": [
+        {
+          "driver_cores": 1,
+          "driver_memory": 3,
+          "executor_cores": 1,
+          "executor_instances": 1,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 100,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 1,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 100,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 3,
+          "executor_cores": 2,
+          "executor_instances": 2,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 50,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 2,
+          "executor_instances": 1,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 3,
+          "executor_cores": 2,
+          "executor_instances": 4,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 200,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 4,
+          "executor_cores": 2,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 1,
+          "executor_memory": 5,
+          "sql_shuffle_partitions": 100,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 4,
+          "executor_instances": 1,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 350,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 2,
+          "executor_instances": 3,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 50,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 1,
+          "executor_instances": 3,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 4,
+          "executor_cores": 1,
+          "executor_instances": 3,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 4,
+          "executor_cores": 2,
+          "executor_instances": 1,
+          "executor_memory": 5,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 2,
+          "executor_cores": 4,
+          "executor_instances": 2,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 2,
+          "executor_cores": 2,
+          "executor_instances": 4,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 1
+        }
+      ]
+    },
+    {
+      "data_scale": "large",
+      "num_configs": 25,
+      "configurations": [
+        {
+          "driver_cores": 2,
+          "driver_memory": 2,
+          "executor_cores": 1,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 2,
+          "executor_cores": 2,
+          "executor_instances": 1,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 100,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 1,
+          "executor_memory": 5,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 2,
+          "executor_cores": 1,
+          "executor_instances": 3,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 2,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 4,
+          "executor_cores": 3,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 4,
+          "executor_instances": 3,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 50,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 3,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 4,
+          "executor_cores": 2,
+          "executor_instances": 4,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 2,
+          "executor_cores": 4,
+          "executor_instances": 3,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 3,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 200,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 2,
+          "executor_cores": 4,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 2,
+          "executor_cores": 5,
+          "executor_instances": 3,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 200,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 2,
+          "executor_cores": 4,
+          "executor_instances": 5,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 100,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 2,
+          "executor_instances": 5,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 4,
+          "executor_cores": 5,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 200,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 3,
+          "executor_cores": 2,
+          "executor_instances": 4,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 350,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 4,
+          "executor_cores": 2,
+          "executor_instances": 4,
+          "executor_memory": 5,
+          "sql_shuffle_partitions": 150,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 4,
+          "executor_cores": 4,
+          "executor_instances": 2,
+          "executor_memory": 4,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 3,
+          "executor_instances": 4,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 1,
+          "driver_memory": 2,
+          "executor_cores": 3,
+          "executor_instances": 4,
+          "executor_memory": 5,
+          "sql_shuffle_partitions": 250,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 3,
+          "executor_cores": 4,
+          "executor_instances": 4,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 300,
+          "task_cpus": 1
+        },
+        {
+          "driver_cores": 3,
+          "driver_memory": 4,
+          "executor_cores": 5,
+          "executor_instances": 3,
+          "executor_memory": 3,
+          "sql_shuffle_partitions": 50,
+          "task_cpus": 2
+        },
+        {
+          "driver_cores": 2,
+          "driver_memory": 4,
+          "executor_cores": 4,
+          "executor_instances": 5,
+          "executor_memory": 2,
+          "sql_shuffle_partitions": 200,
+          "task_cpus": 2
+        }
+      ]
+    }
+  ]
+}

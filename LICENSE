@@ -1,0 +1,53 @@
+Project: Spark Self-Tuning Framework (STL-PARN–ILS–TS–BO)
+Copyright (c) 2025 Mariano Garralda Barrio
+Affiliation: Universidade da Coruña (UDC), CITIC
+
+DUAL LICENSE NOTICE
+================================================================
+This software is distributed under a dual-license model:
+
+PART A — Academic & Research Use License (CC BY-NC 4.0)
+----------------------------------------------------------------
+You are free to use, copy, modify, and share this software for
+NON-COMMERCIAL research or academic purposes, provided that you:
+
+  • Give appropriate credit to the author.
+  • Indicate any modifications made.
+  • Include this license notice in all copies or substantial portions.
+
+Full license text:
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode
+Summary:
+  https://creativecommons.org/licenses/by-nc/4.0/
+
+Attribution requirement:
+  Cite the associated publication:
+    “A hybrid metaheuristics–Bayesian Optimization framework with safe
+     transfer learning for continuous Spark tuning”
+    Mariano Garralda-Barrio, Carlos Eiras-Franco, Verónica Bolón-Canedo
+    Universidade da Coruña (UDC), 2025.
+
+“NonCommercial” means not primarily intended for or directed toward
+commercial advantage or monetary compensation.
+
+PART B — Commercial Use
+----------------------------------------------------------------
+Commercial use of this software — including but not limited to
+integration into commercial products, internal optimization tools,
+paid services, or consulting — is NOT ALLOWED without a separate
+commercial agreement.
+
+For commercial licensing inquiries, contact:
+  Mariano Garralda Barrio  <mariano.garralda@udc.es>
+
+DISCLAIMER OF WARRANTY
+----------------------------------------------------------------
+This software is provided “AS IS”, without warranties or conditions
+of any kind, either express or implied. In no event shall the authors
+or copyright holders be liable for any claim, damages, or other
+liability arising from or in connection with the use of this software.
+
+THIRD-PARTY COMPONENTS
+----------------------------------------------------------------
+This project may include third-party software distributed under their
+own licenses. Such components remain governed by their respective terms.

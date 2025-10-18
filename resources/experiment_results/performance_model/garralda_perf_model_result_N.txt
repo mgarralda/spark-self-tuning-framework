@@ -1,0 +1,316 @@
+"garralda_perf_model_runner.py"
+
+Characterized workloads:
+	# samples: 800
+	# workload characterization vector size v1: 100
+	# workload characterization vector size v2: 68
+	# setting vector size v1: 7
+	# setting vector size v2: 8
+	# unique workloads: 20
+	# limit of transfer learning (k_limit): 800
+Workload counter per group: Counter({'sort': 40, 'terasort': 40, 'wordcount': 40, 'repartition': 40, 'aggregation': 40, 'join': 40, 'scan': 40, 'pagerank': 40, 'bayes': 40, 'kmeans': 40, 'lr': 40, 'pca': 40, 'gbt': 40, 'rf': 40, 'svd': 40, 'linear': 40, 'lda': 40, 'svm': 40, 'gmm': 40, 'summarizer': 40})
+
+=======================================================================================================================
+BETA = 1.0
+SEED = 42
+=======================================================================================================================
+N_sizes:
+	min: 38
+	median: 55.00
+	mean: 58.60
+	max: 101
+Vector:40-dimension = [58, 59, 55, 52, 49, 50, 57, 45, 65, 53, 57, 77, 52, 52, 50, 59, 80, 55, 55, 58, 63, 101, 71, 54, 42, 61, 64, 55, 53, 78, 47, 51, 38, 65, 48, 53, 51, 48, 95, 68]
+
+C_sizes:
+	min: 20
+	median: 28.50
+	mean: 28.65
+	max: 41
+Vector 40-dimension = [28, 21, 20, 34, 24, 20, 27, 26, 35, 26, 30, 26, 23, 28, 29, 38, 37, 34, 31, 41, 34, 26, 37, 24, 24, 33, 31, 31, 26, 22, 30, 24, 23, 32, 31, 31, 30, 24, 25, 30]
+
+====================================================================
+NNLS regression model (MinMaxScaler)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=3.33 RMSE=4.73 Med=2.22 P95=10.23 P98=13.94 Max=15.73
+[LOGOCV] Grupo fuera: bayes | MAE=3.58 RMSE=4.15 Med=3.52 P95=6.27 P98=9.61 Max=10.00
+[LOGOCV] Grupo fuera: gbt | MAE=237.19 RMSE=295.08 Med=238.89 P95=531.97 P98=554.50 Max=599.65
+[LOGOCV] Grupo fuera: gmm | MAE=44.40 RMSE=65.84 Med=30.12 P95=150.49 P98=164.66 Max=208.36
+[LOGOCV] Grupo fuera: join | MAE=6.76 RMSE=8.58 Med=5.49 P95=18.60 P98=19.12 Max=19.70
+[WARNING LOGOCV] Negative prediction: -60.84498734264788 (workload: kmeans)
+[LOGOCV] Grupo fuera: kmeans | MAE=22.22 RMSE=50.63 Med=10.86 P95=52.11 P98=128.08 Max=285.84
+[LOGOCV] Grupo fuera: lda | MAE=285.22 RMSE=354.56 Med=213.61 P95=616.60 P98=883.95 Max=924.44
+[LOGOCV] Grupo fuera: linear | MAE=1637.99 RMSE=2071.07 Med=1537.87 P95=3778.78 P98=4320.70 Max=4386.42
+[LOGOCV] Grupo fuera: lr | MAE=1145.78 RMSE=1819.58 Med=648.51 P95=4570.94 P98=4806.70 Max=4940.95
+[LOGOCV] Grupo fuera: pagerank | MAE=18.02 RMSE=22.79 Med=12.76 P95=40.44 P98=53.63 Max=76.53
+[LOGOCV] Grupo fuera: pca | MAE=3.16 RMSE=3.81 Med=2.82 P95=6.34 P98=8.98 Max=9.28
+[LOGOCV] Grupo fuera: repartition | MAE=19.56 RMSE=21.91 Med=20.17 P95=31.89 P98=45.75 Max=56.32
+[LOGOCV] Grupo fuera: rf | MAE=5.18 RMSE=6.60 Med=3.79 P95=11.73 P98=15.71 Max=18.12
+[LOGOCV] Grupo fuera: scan | MAE=2.34 RMSE=2.86 Med=1.83 P95=5.01 P98=6.41 Max=7.76
+[LOGOCV] Grupo fuera: sort | MAE=5.64 RMSE=7.29 Med=4.68 P95=17.43 P98=17.94 Max=18.44
+[LOGOCV] Grupo fuera: summarizer | MAE=18.80 RMSE=25.70 Med=11.82 P95=52.83 P98=62.35 Max=86.32
+[LOGOCV] Grupo fuera: svd | MAE=150.16 RMSE=187.33 Med=205.85 P95=269.53 P98=269.80 Max=270.29
+[LOGOCV] Grupo fuera: svm | MAE=1295.36 RMSE=1905.76 Med=1206.81 P95=4672.88 P98=4997.96 Max=5221.73
+[LOGOCV] Grupo fuera: terasort | MAE=20.64 RMSE=32.58 Med=11.70 P95=88.71 P98=89.96 Max=93.18
+[LOGOCV] Grupo fuera: wordcount | MAE=7.13 RMSE=10.78 Med=4.24 P95=22.91 P98=26.35 Max=33.59
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 246.623 | RMSE: 757.957 | P95: 1749.747 | Max: 5221.725
+	Kendall tau (fold-agg): 0.524 | Precision@10 (fold-agg): 0.655 | ESR_mu (fold-avg): 45.350
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 246.623 ± 480.710 | RMSE: 345.082 ± 674.846
+	P95(avg): 747.785 | Max(avg): 864.132
+	Kendall tau(avg): 0.524 | Precision@10(avg): 0.655 | ESR_mu(avg): 45.350
+
+====================================================================
+RIDGE regression model (alpha=2.0, random_state=42, MinMaxScaler)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=1.60 RMSE=2.28 Med=1.00 P95=5.34 P98=6.03 Max=6.06
+[LOGOCV] Grupo fuera: bayes | MAE=2.21 RMSE=2.85 Med=1.18 P95=4.71 P98=5.23 Max=6.68
+[LOGOCV] Grupo fuera: gbt | MAE=217.87 RMSE=274.58 Med=211.20 P95=528.07 P98=543.65 Max=561.10
+[LOGOCV] Grupo fuera: gmm | MAE=31.47 RMSE=48.42 Med=12.48 P95=118.85 P98=125.97 Max=131.76
+[LOGOCV] Grupo fuera: join | MAE=4.58 RMSE=6.37 Med=3.20 P95=13.85 P98=16.51 Max=17.98
+[LOGOCV] Grupo fuera: kmeans | MAE=17.98 RMSE=24.45 Med=16.70 P95=56.52 P98=57.86 Max=61.10
+[LOGOCV] Grupo fuera: lda | MAE=257.09 RMSE=330.74 Med=177.09 P95=593.36 P98=843.38 Max=885.90
+[LOGOCV] Grupo fuera: linear | MAE=831.51 RMSE=1050.77 Med=631.00 P95=1985.60 P98=2016.23 Max=2058.54
+[LOGOCV] Grupo fuera: lr | MAE=1069.11 RMSE=1666.28 Med=419.32 P95=3761.44 P98=4184.10 Max=4431.06
+[LOGOCV] Grupo fuera: pagerank | MAE=12.30 RMSE=15.03 Med=10.24 P95=24.54 P98=39.73 Max=40.07
+[LOGOCV] Grupo fuera: pca | MAE=1.73 RMSE=2.21 Med=1.34 P95=4.10 P98=4.43 Max=4.49
+[LOGOCV] Grupo fuera: repartition | MAE=12.36 RMSE=13.03 Med=13.49 P95=19.51 P98=19.81 Max=20.70
+[LOGOCV] Grupo fuera: rf | MAE=3.21 RMSE=4.02 Med=2.55 P95=7.84 P98=8.69 Max=8.73
+[LOGOCV] Grupo fuera: scan | MAE=0.96 RMSE=1.18 Med=0.88 P95=2.14 P98=2.95 Max=3.41
+[LOGOCV] Grupo fuera: sort | MAE=1.85 RMSE=2.48 Med=1.33 P95=5.34 P98=5.80 Max=6.29
+[LOGOCV] Grupo fuera: summarizer | MAE=15.07 RMSE=18.32 Med=13.43 P95=32.35 P98=35.79 Max=42.14
+[LOGOCV] Grupo fuera: svd | MAE=136.40 RMSE=172.14 Med=190.10 P95=246.41 P98=248.86 Max=248.97
+[LOGOCV] Grupo fuera: svm | MAE=625.22 RMSE=1117.65 Med=299.96 P95=3014.51 P98=3315.93 Max=3923.59
+[LOGOCV] Grupo fuera: terasort | MAE=12.94 RMSE=23.35 Med=4.72 P95=63.10 P98=69.31 Max=73.00
+[LOGOCV] Grupo fuera: wordcount | MAE=5.46 RMSE=8.34 Med=2.07 P95=19.13 P98=19.66 Max=19.67
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 163.045 | RMSE: 517.132 | P95: 903.808 | Max: 4431.059
+	Kendall tau (fold-agg): 0.694 | Precision@10 (fold-agg): 0.805 | ESR_mu (fold-avg): 31.450
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 163.045 ± 302.314 | RMSE: 239.223 ± 458.474
+	P95(avg): 525.335 | Max(avg): 627.562
+	Kendall tau(avg): 0.694 | Precision@10(avg): 0.805 | ESR_mu(avg): 31.450
+
+====================================================================
+RANDOM FOREST regression model (random_state=42)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=2.12 RMSE=2.76 Med=1.71 P95=4.84 P98=7.74 Max=8.27
+[LOGOCV] Grupo fuera: bayes | MAE=3.89 RMSE=5.22 Med=2.58 P95=9.60 P98=12.65 Max=12.93
+[LOGOCV] Grupo fuera: gbt | MAE=237.45 RMSE=297.29 Med=236.40 P95=535.65 P98=549.08 Max=583.93
+[LOGOCV] Grupo fuera: gmm | MAE=28.73 RMSE=38.11 Med=27.76 P95=87.45 P98=93.12 Max=98.98
+[LOGOCV] Grupo fuera: join | MAE=5.84 RMSE=8.13 Med=3.46 P95=20.41 P98=20.98 Max=22.04
+[LOGOCV] Grupo fuera: kmeans | MAE=20.46 RMSE=25.74 Med=15.79 P95=55.86 P98=57.34 Max=60.80
+[LOGOCV] Grupo fuera: lda | MAE=263.61 RMSE=333.04 Med=184.08 P95=589.22 P98=832.23 Max=874.93
+[LOGOCV] Grupo fuera: linear | MAE=998.32 RMSE=1222.45 Med=865.31 P95=2025.92 P98=2129.85 Max=2496.92
+[LOGOCV] Grupo fuera: lr | MAE=774.34 RMSE=1206.63 Med=266.23 P95=2479.44 P98=3035.30 Max=3152.61
+[LOGOCV] Grupo fuera: pagerank | MAE=19.00 RMSE=25.16 Med=13.53 P95=37.67 P98=51.65 Max=99.01
+[LOGOCV] Grupo fuera: pca | MAE=3.02 RMSE=3.48 Med=2.68 P95=6.20 P98=7.84 Max=8.04
+[LOGOCV] Grupo fuera: repartition | MAE=12.05 RMSE=12.47 Med=11.73 P95=17.24 P98=18.56 Max=21.90
+[LOGOCV] Grupo fuera: rf | MAE=3.56 RMSE=4.04 Med=3.40 P95=6.73 P98=6.88 Max=7.07
+[LOGOCV] Grupo fuera: scan | MAE=2.18 RMSE=2.99 Med=1.33 P95=6.10 P98=8.17 Max=8.91
+[LOGOCV] Grupo fuera: sort | MAE=3.25 RMSE=3.89 Med=3.08 P95=6.45 P98=8.09 Max=8.34
+[LOGOCV] Grupo fuera: summarizer | MAE=20.35 RMSE=30.41 Med=13.25 P95=68.31 P98=82.12 Max=105.72
+[LOGOCV] Grupo fuera: svd | MAE=149.85 RMSE=188.34 Med=210.58 P95=268.48 P98=273.69 Max=275.02
+[LOGOCV] Grupo fuera: svm | MAE=709.04 RMSE=1205.80 Med=181.18 P95=2249.14 P98=3313.21 Max=4237.98
+[LOGOCV] Grupo fuera: terasort | MAE=13.84 RMSE=22.49 Med=7.86 P95=54.66 P98=68.63 Max=72.23
+[LOGOCV] Grupo fuera: wordcount | MAE=11.45 RMSE=18.02 Med=4.31 P95=42.59 P98=48.20 Max=54.91
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 164.118 | RMSE: 481.863 | P95: 1051.366 | Max: 4237.975
+	Kendall tau (fold-agg): 0.571 | Precision@10 (fold-agg): 0.705 | ESR_mu (fold-avg): 41.500
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 164.118 ± 292.505 | RMSE: 232.823 ± 421.883
+	P95(avg): 428.599 | Max(avg): 610.527
+	Kendall tau(avg): 0.571 | Precision@10(avg): 0.705 | ESR_mu(avg): 41.500
+
+====================================================================
+GRADIENTBOOSTING regression model (random_state=42)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=3.00 RMSE=3.95 Med=2.36 P95=7.82 P98=8.91 Max=11.95
+[LOGOCV] Grupo fuera: bayes | MAE=3.81 RMSE=5.21 Med=2.52 P95=9.01 P98=10.12 Max=13.94
+[WARNING LOGOCV] Negative prediction: -6.394591951325235 (workload: gbt)
+[LOGOCV] Grupo fuera: gbt | MAE=241.07 RMSE=302.74 Med=240.83 P95=538.08 P98=553.74 Max=606.01
+[LOGOCV] Grupo fuera: gmm | MAE=28.30 RMSE=35.60 Med=26.11 P95=65.49 P98=83.40 Max=85.89
+[LOGOCV] Grupo fuera: join | MAE=6.01 RMSE=8.14 Med=4.00 P95=20.29 P98=20.90 Max=21.17
+[LOGOCV] Grupo fuera: kmeans | MAE=24.56 RMSE=31.14 Med=23.32 P95=66.96 P98=70.44 Max=76.52
+[LOGOCV] Grupo fuera: lda | MAE=258.15 RMSE=328.87 Med=179.81 P95=589.01 P98=829.05 Max=876.46
+[LOGOCV] Grupo fuera: linear | MAE=746.46 RMSE=914.97 Med=535.08 P95=1636.82 P98=1735.31 Max=1999.64
+[LOGOCV] Grupo fuera: lr | MAE=652.67 RMSE=1003.15 Med=284.15 P95=2161.73 P98=2593.37 Max=2596.56
+[LOGOCV] Grupo fuera: pagerank | MAE=17.20 RMSE=21.72 Med=13.82 P95=31.81 P98=42.68 Max=78.59
+[LOGOCV] Grupo fuera: pca | MAE=4.09 RMSE=4.60 Med=3.99 P95=8.39 P98=8.80 Max=8.94
+[LOGOCV] Grupo fuera: repartition | MAE=10.31 RMSE=10.90 Med=10.55 P95=14.98 P98=16.58 Max=19.97
+[LOGOCV] Grupo fuera: rf | MAE=4.03 RMSE=4.98 Med=3.90 P95=7.95 P98=10.09 Max=17.51
+[LOGOCV] Grupo fuera: scan | MAE=2.71 RMSE=3.63 Med=1.99 P95=6.18 P98=8.88 Max=13.29
+[LOGOCV] Grupo fuera: sort | MAE=3.14 RMSE=3.68 Med=3.01 P95=6.92 P98=7.21 Max=7.98
+[LOGOCV] Grupo fuera: summarizer | MAE=22.74 RMSE=34.52 Med=16.90 P95=74.67 P98=100.04 Max=125.67
+[LOGOCV] Grupo fuera: svd | MAE=153.28 RMSE=191.18 Med=214.73 P95=277.70 P98=282.86 Max=284.88
+[LOGOCV] Grupo fuera: svm | MAE=599.16 RMSE=994.41 Med=236.26 P95=1943.41 P98=2615.78 Max=3629.21
+[LOGOCV] Grupo fuera: terasort | MAE=13.09 RMSE=21.17 Med=6.81 P95=51.75 P98=62.97 Max=69.25
+[LOGOCV] Grupo fuera: wordcount | MAE=13.48 RMSE=20.90 Med=4.99 P95=53.29 P98=54.23 Max=56.98
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 140.364 | RMSE: 392.032 | P95: 876.846 | Max: 3629.210
+	Kendall tau (fold-agg): 0.526 | Precision@10 (fold-agg): 0.635 | ESR_mu (fold-avg): 68.850
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 140.364 ± 234.434 | RMSE: 197.274 ± 338.780
+	P95(avg): 378.613 | Max(avg): 530.020
+	Kendall tau(avg): 0.526 | Precision@10(avg): 0.635 | ESR_mu(avg): 68.850
+
+
+=======================================================================================================================
+BETA = .5
+SEED = 42
+=======================================================================================================================
+N_sizes:
+	min: 36
+	median: 53.50
+	mean: 55.62
+	max: 89
+Vector:40-dimension = [60, 62, 52, 57, 69, 52, 52, 55, 60, 48, 57, 51, 59, 55, 56, 49, 61, 46, 48, 51, 57, 85, 56, 42, 40, 51, 52, 49, 59, 76, 47, 50, 36, 62, 51, 48, 57, 50, 89, 68]
+
+C_sizes:
+	min: 19
+	median: 28.00
+	mean: 28.38
+	max: 46
+Vector 40-dimension = [33, 23, 33, 31, 20, 37, 35, 30, 46, 41, 31, 26, 30, 34, 29, 24, 30, 28, 26, 27, 29, 19, 28, 26, 24, 29, 28, 25, 26, 25, 24, 29, 24, 30, 27, 26, 31, 24, 23, 24]
+
+====================================================================
+NNLS regression model (MinMaxScaler)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=1.54 RMSE=1.89 Med=1.37 P95=3.31 P98=3.68 Max=4.24
+[LOGOCV] Grupo fuera: bayes | MAE=3.58 RMSE=4.74 Med=2.38 P95=9.66 P98=10.50 Max=12.91
+[LOGOCV] Grupo fuera: gbt | MAE=56.83 RMSE=68.44 Med=68.35 P95=103.86 P98=117.73 Max=145.07
+[LOGOCV] Grupo fuera: gmm | MAE=13.48 RMSE=17.22 Med=15.14 P95=30.10 P98=32.45 Max=35.01
+[LOGOCV] Grupo fuera: join | MAE=2.95 RMSE=3.67 Med=2.61 P95=7.05 P98=7.74 Max=7.96
+[LOGOCV] Grupo fuera: kmeans | MAE=6.49 RMSE=8.58 Med=4.81 P95=17.26 P98=19.45 Max=22.19
+[LOGOCV] Grupo fuera: lda | MAE=55.40 RMSE=61.88 Med=51.92 P95=101.97 P98=119.66 Max=123.68
+[LOGOCV] Grupo fuera: linear | MAE=140.92 RMSE=170.89 Med=164.78 P95=274.40 P98=296.85 Max=300.85
+[LOGOCV] Grupo fuera: lr | MAE=81.61 RMSE=108.61 Med=66.60 P95=213.42 P98=227.90 Max=266.24
+[LOGOCV] Grupo fuera: pagerank | MAE=9.02 RMSE=10.22 Med=8.16 P95=16.86 P98=20.37 Max=25.65
+[LOGOCV] Grupo fuera: pca | MAE=3.42 RMSE=4.42 Med=2.61 P95=9.56 P98=10.38 Max=11.93
+[LOGOCV] Grupo fuera: repartition | MAE=8.75 RMSE=9.33 Med=8.54 P95=13.36 P98=14.31 Max=17.26
+[LOGOCV] Grupo fuera: rf | MAE=4.49 RMSE=5.32 Med=3.82 P95=10.12 P98=11.02 Max=11.76
+[LOGOCV] Grupo fuera: scan | MAE=2.17 RMSE=2.54 Med=2.02 P95=4.22 P98=4.58 Max=4.68
+[LOGOCV] Grupo fuera: sort | MAE=3.44 RMSE=4.40 Med=3.10 P95=9.17 P98=9.55 Max=10.11
+[LOGOCV] Grupo fuera: summarizer | MAE=6.65 RMSE=8.67 Med=5.23 P95=16.79 P98=18.21 Max=18.47
+[LOGOCV] Grupo fuera: svd | MAE=41.34 RMSE=53.51 Med=50.34 P95=89.11 P98=93.06 Max=94.52
+[LOGOCV] Grupo fuera: svm | MAE=107.68 RMSE=139.31 Med=130.16 P95=235.01 P98=258.60 Max=300.97
+[LOGOCV] Grupo fuera: terasort | MAE=7.68 RMSE=9.19 Med=6.73 P95=16.45 P98=17.33 Max=17.47
+[LOGOCV] Grupo fuera: wordcount | MAE=4.64 RMSE=6.49 Med=3.10 P95=13.04 P98=15.37 Max=19.15
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 28.104 | RMSE: 60.274 | P95: 163.861 | Max: 300.966
+	Kendall tau (fold-agg): 0.661 | Precision@10 (fold-agg): 0.690 | ESR_mu (fold-avg): 4.152
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 28.104 ± 39.308 | RMSE: 34.967 ± 49.094
+	P95(avg): 59.736 | Max(avg): 72.505
+	Kendall tau(avg): 0.661 | Precision@10(avg): 0.690 | ESR_mu(avg): 4.152
+
+====================================================================
+RIDGE regression model (alpha=2.0, random_state=42, MinMaxScaler)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=1.20 RMSE=1.86 Med=0.76 P95=3.28 P98=4.48 Max=7.86
+[LOGOCV] Grupo fuera: bayes | MAE=3.22 RMSE=4.33 Med=2.69 P95=9.39 P98=10.03 Max=11.41
+[LOGOCV] Grupo fuera: gbt | MAE=50.07 RMSE=64.32 Med=56.02 P95=100.84 P98=115.16 Max=145.07
+[LOGOCV] Grupo fuera: gmm | MAE=7.82 RMSE=10.67 Med=5.80 P95=19.97 P98=24.08 Max=31.81
+[LOGOCV] Grupo fuera: join | MAE=2.05 RMSE=3.00 Med=1.28 P95=6.91 P98=8.94 Max=9.01
+[LOGOCV] Grupo fuera: kmeans | MAE=5.26 RMSE=6.26 Med=4.91 P95=9.97 P98=13.85 Max=16.57
+[LOGOCV] Grupo fuera: lda | MAE=47.88 RMSE=55.67 Med=45.38 P95=95.56 P98=116.63 Max=124.36
+[LOGOCV] Grupo fuera: linear | MAE=67.69 RMSE=90.42 Med=43.77 P95=159.56 P98=186.17 Max=188.97
+[LOGOCV] Grupo fuera: lr | MAE=75.16 RMSE=108.76 Med=61.84 P95=228.59 P98=273.00 Max=336.13
+[LOGOCV] Grupo fuera: pagerank | MAE=6.26 RMSE=7.67 Med=5.66 P95=14.64 P98=16.39 Max=16.67
+[LOGOCV] Grupo fuera: pca | MAE=1.55 RMSE=2.29 Med=0.95 P95=5.18 P98=5.60 Max=6.57
+[LOGOCV] Grupo fuera: repartition | MAE=4.73 RMSE=5.95 Med=3.75 P95=10.94 P98=13.44 Max=13.69
+[LOGOCV] Grupo fuera: rf | MAE=2.44 RMSE=3.91 Med=1.18 P95=10.22 P98=10.82 Max=11.67
+[LOGOCV] Grupo fuera: scan | MAE=1.00 RMSE=1.47 Med=0.70 P95=2.53 P98=4.48 Max=5.76
+[LOGOCV] Grupo fuera: sort | MAE=1.96 RMSE=2.66 Med=1.57 P95=4.61 P98=6.30 Max=9.18
+[LOGOCV] Grupo fuera: summarizer | MAE=4.51 RMSE=6.38 Med=3.10 P95=11.02 P98=15.02 Max=26.81
+[LOGOCV] Grupo fuera: svd | MAE=39.32 RMSE=52.16 Med=47.56 P95=89.41 P98=92.55 Max=95.11
+[LOGOCV] Grupo fuera: svm | MAE=46.80 RMSE=70.66 Med=35.96 P95=164.83 P98=177.61 Max=190.42
+[LOGOCV] Grupo fuera: terasort | MAE=4.59 RMSE=6.30 Med=2.96 P95=14.34 P98=14.69 Max=15.43
+[LOGOCV] Grupo fuera: wordcount | MAE=3.10 RMSE=5.02 Med=1.72 P95=8.55 P98=12.39 Max=21.96
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 18.830 | RMSE: 42.053 | P95: 97.908 | Max: 336.129
+	Kendall tau (fold-agg): 0.721 | Precision@10 (fold-agg): 0.850 | ESR_mu (fold-avg): 1.303
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 18.830 ± 24.398 | RMSE: 25.488 ± 33.449
+	P95(avg): 48.517 | Max(avg): 64.223
+	Kendall tau(avg): 0.721 | Precision@10(avg): 0.850 | ESR_mu(avg): 1.303
+
+====================================================================
+RANDOM FOREST regression model (random_state=42)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=0.93 RMSE=1.18 Med=0.77 P95=2.40 P98=2.90 Max=3.29
+[LOGOCV] Grupo fuera: bayes | MAE=3.47 RMSE=4.47 Med=2.49 P95=9.05 P98=9.89 Max=11.33
+[LOGOCV] Grupo fuera: gbt | MAE=53.18 RMSE=67.35 Med=63.20 P95=105.05 P98=115.96 Max=144.35
+[LOGOCV] Grupo fuera: gmm | MAE=8.52 RMSE=11.06 Med=8.45 P95=18.28 P98=25.32 Max=33.87
+[LOGOCV] Grupo fuera: join | MAE=2.69 RMSE=3.64 Med=1.73 P95=7.84 P98=8.40 Max=10.06
+[LOGOCV] Grupo fuera: kmeans | MAE=5.57 RMSE=6.94 Med=4.47 P95=14.17 P98=15.31 Max=17.45
+[LOGOCV] Grupo fuera: lda | MAE=48.14 RMSE=56.01 Med=47.24 P95=98.60 P98=114.27 Max=115.58
+[LOGOCV] Grupo fuera: linear | MAE=98.64 RMSE=119.13 Med=97.06 P95=209.94 P98=214.79 Max=220.52
+[LOGOCV] Grupo fuera: lr | MAE=58.55 RMSE=93.25 Med=30.15 P95=219.37 P98=263.99 Max=321.28
+[LOGOCV] Grupo fuera: pagerank | MAE=8.04 RMSE=9.52 Med=7.35 P95=18.57 P98=19.77 Max=21.94
+[LOGOCV] Grupo fuera: pca | MAE=2.78 RMSE=3.55 Med=2.23 P95=6.58 P98=8.36 Max=8.63
+[LOGOCV] Grupo fuera: repartition | MAE=4.99 RMSE=6.36 Med=3.87 P95=12.38 P98=14.04 Max=15.40
+[LOGOCV] Grupo fuera: rf | MAE=3.44 RMSE=4.53 Med=2.48 P95=9.29 P98=10.46 Max=11.22
+[LOGOCV] Grupo fuera: scan | MAE=1.67 RMSE=1.91 Med=1.57 P95=2.85 P98=3.70 Max=3.87
+[LOGOCV] Grupo fuera: sort | MAE=2.91 RMSE=3.54 Med=2.41 P95=6.66 P98=7.01 Max=8.13
+[LOGOCV] Grupo fuera: summarizer | MAE=5.39 RMSE=7.89 Med=3.06 P95=14.41 P98=18.02 Max=28.13
+[LOGOCV] Grupo fuera: svd | MAE=41.71 RMSE=54.43 Med=52.47 P95=88.84 P98=92.99 Max=94.98
+[LOGOCV] Grupo fuera: svm | MAE=63.72 RMSE=94.26 Med=37.19 P95=197.82 P98=228.18 Max=282.93
+[LOGOCV] Grupo fuera: terasort | MAE=5.36 RMSE=7.36 Med=4.23 P95=14.36 P98=15.91 Max=19.43
+[LOGOCV] Grupo fuera: wordcount | MAE=4.72 RMSE=6.90 Med=2.57 P95=14.95 P98=16.37 Max=19.98
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 21.220 | RMSE: 46.346 | P95: 103.812 | Max: 321.281
+	Kendall tau (fold-agg): 0.629 | Precision@10 (fold-agg): 0.740 | ESR_mu (fold-avg): 7.092
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 21.220 ± 27.769 | RMSE: 28.165 ± 36.806
+	P95(avg): 53.571 | Max(avg): 69.618
+	Kendall tau(avg): 0.629 | Precision@10(avg): 0.740 | ESR_mu(avg): 7.092
+
+====================================================================
+GRADIENTBOOSTING regression model (random_state=42)
+====================================================================
+[LOGOCV] Grupo fuera: aggregation | MAE=1.43 RMSE=1.71 Med=1.39 P95=2.66 P98=3.70 Max=3.87
+[LOGOCV] Grupo fuera: bayes | MAE=4.10 RMSE=5.32 Med=3.03 P95=9.34 P98=12.28 Max=15.27
+[LOGOCV] Grupo fuera: gbt | MAE=54.19 RMSE=68.58 Med=63.85 P95=107.66 P98=122.82 Max=146.72
+[LOGOCV] Grupo fuera: gmm | MAE=7.99 RMSE=9.94 Med=7.02 P95=17.31 P98=19.97 Max=28.05
+[LOGOCV] Grupo fuera: join | MAE=2.65 RMSE=3.55 Med=1.68 P95=7.53 P98=8.81 Max=9.90
+[LOGOCV] Grupo fuera: kmeans | MAE=7.42 RMSE=8.96 Med=6.53 P95=15.33 P98=21.10 Max=23.17
+[LOGOCV] Grupo fuera: lda | MAE=47.53 RMSE=55.23 Med=46.91 P95=97.48 P98=112.94 Max=114.27
+[LOGOCV] Grupo fuera: linear | MAE=78.78 RMSE=95.45 Med=62.39 P95=171.68 P98=184.86 Max=192.81
+[LOGOCV] Grupo fuera: lr | MAE=53.80 RMSE=95.70 Med=22.85 P95=255.72 P98=278.37 Max=350.35
+[LOGOCV] Grupo fuera: pagerank | MAE=7.63 RMSE=8.84 Med=6.93 P95=15.26 P98=18.79 Max=20.34
+[LOGOCV] Grupo fuera: pca | MAE=3.33 RMSE=4.03 Med=2.73 P95=7.88 P98=9.56 Max=9.77
+[LOGOCV] Grupo fuera: repartition | MAE=5.58 RMSE=7.22 Med=4.15 P95=16.56 P98=18.07 Max=18.72
+[LOGOCV] Grupo fuera: rf | MAE=3.96 RMSE=4.95 Med=3.11 P95=8.84 P98=10.31 Max=14.78
+[LOGOCV] Grupo fuera: scan | MAE=1.90 RMSE=2.30 Med=1.59 P95=4.42 P98=4.88 Max=5.91
+[LOGOCV] Grupo fuera: sort | MAE=3.04 RMSE=3.59 Med=2.57 P95=6.75 P98=7.67 Max=8.17
+[LOGOCV] Grupo fuera: summarizer | MAE=5.85 RMSE=8.14 Med=3.70 P95=17.02 P98=18.69 Max=22.42
+[LOGOCV] Grupo fuera: svd | MAE=42.56 RMSE=54.82 Med=51.99 P95=88.67 P98=93.92 Max=95.22
+[LOGOCV] Grupo fuera: svm | MAE=51.65 RMSE=83.52 Med=21.29 P95=173.92 P98=208.45 Max=294.49
+[LOGOCV] Grupo fuera: terasort | MAE=5.06 RMSE=7.03 Med=3.67 P95=13.56 P98=15.16 Max=20.69
+[LOGOCV] Grupo fuera: wordcount | MAE=5.51 RMSE=7.37 Med=4.05 P95=15.23 P98=17.20 Max=21.49
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 19.698 | RMSE: 42.771 | P95: 92.344 | Max: 350.350
+	Kendall tau (fold-agg): 0.593 | Precision@10 (fold-agg): 0.710 | ESR_mu (fold-avg): 6.700
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 19.698 ± 23.854 | RMSE: 26.813 ± 33.323
+	P95(avg): 52.642 | Max(avg): 70.820
+	Kendall tau(avg): 0.593 | Precision@10(avg): 0.710 | ESR_mu(avg): 6.700
+
+

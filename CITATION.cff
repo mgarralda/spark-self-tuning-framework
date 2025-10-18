@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Spark Self-Tuning Framework (STL-PARN–ILS–TS–BO)"
+abstract: >
+  Implementation of the framework proposed in the article
+  "A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning
+  for continuous Spark tuning" (Future Generation Computer Systems, 2025).
+authors:
+  - family-names: Garralda-Barrio
+    given-names: Mariano
+    affiliation: "Universidade da Coruña (UDC), CITIC"
+    orcid: "0000-0002-XXXX-XXXX"   # opcional si tienes ORCID
+  - family-names: Eiras-Franco
+    given-names: Carlos
+    affiliation: "Universidade da Coruña (UDC)"
+  - family-names: Bolón-Canedo
+    given-names: Verónica
+    affiliation: "Universidade da Coruña (UDC)"
+license: "CC-BY-NC-4.0 OR LicenseRef-Commercial"
+repository-code: "https://github.com/mgarralda/spark-self-tuning-framework"
+date-released: "2025-10-18"
+keywords:
+  - Apache Spark
+  - Metaheuristics
+  - Bayesian Optimization
+  - Safe Transfer Learning
+  - Distributed Computing
+preferred-citation:
+  type: article
+  title: "A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning for continuous Spark tuning"
+  authors:
+    - family-names: Garralda-Barrio
+      given-names: Mariano
+    - family-names: Eiras-Franco
+      given-names: Carlos
+    - family-names: Bolón-Canedo
+      given-names: Verónica
+  journal: "Future Generation Computer Systems"
+  year: 2025
+  pages: 107730
+  doi: "https://doi.org/10.1016/j.future.2025.107730"
+  url: "https://www.sciencedirect.com/science/article/pii/S0167739X25000251"

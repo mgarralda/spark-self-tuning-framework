@@ -1,0 +1,18 @@
+"turbo_perf_model_runner.py"
+
+Characterized workloads:
+	# samples: 800
+	# workload characterization vector size: 68
+	# setting vector size: 8
+	# unique workloads: 20
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 239.053 | RMSE: 742.486 | P95: 1491.328 | Max: 6299.342
+	Kendall tau (fold-agg): 0.214 | Precision@10 (fold-agg): 0.365 | ESR_mu (fold-avg): 223.350
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 239.053 ± 500.626 | RMSE: 326.062 ± 667.060
+	P95(avg): 659.666 | Max(avg): 780.587
+	Kendall tau(avg): 0.214 | Precision@10(avg): 0.365 | ESR_mu(avg): 223.350
+
+

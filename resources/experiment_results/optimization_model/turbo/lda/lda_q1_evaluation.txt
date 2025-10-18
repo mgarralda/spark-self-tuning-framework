@@ -1,0 +1,1268 @@
+Target workload: id='application_1753112283118_0246_lda_large' time_stamp=datetime.datetime(2025, 10, 6, 13, 17, 51, 111984) app_name='LDA Example with Params(hdfs://172.18.0.20:9000/HiBench/LDA/Input/large,hdfs://172.18.0.20:9000/HiBench/LDA/Output/large,30,10,online,3g)' app_benchmark_workload='lda' time_execution=210 dataset_size=2847330222.0 app_benchmark_data_size=<InputDataSizeType.LARGE: 'large'> environment=Environment(driver_cores=2, driver_memory_gb=3, dynamic_allocation=False, executor_cores=2, executor_instances=5, executor_memory_gb=3, sql_adaptive=False, sql_shuffle_partitions=300, task_cpus=1) time_resources=None vector_metrics_yoro=[41394.919966301604, 926.0, 730306.0, 165309.40250701623, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5058972198820556, 0.0, 13.0, 2.1405932987953573, 0.34498736310025274, 0.0, 14.0, 1.5001693049024847, 209418.6457455771, 0.0, 5878476.0, 895958.6899569941, 0.0, 0.0, 0.0, 0.0, 147455.3100252738, 0.0, 5078253.0, 638756.0933922259, 0.8550968828980623, 0.0, 30.0, 3.553465769501417, 1199380.8854254424, 0.0, 1476129.0, 328105.3337665934, 8.064026958719461, 0.0, 763.0, 57.16805379765663, 5298704.254422915, 763200.0, 521139600.0, 33968164.32425984, 582.8167649536647, 1.0, 6360.0, 631.2046507449879, 572542308.0454929, 1585700.0, 6218043400.0, 626526631.2962086, 4.068239258635215, 0.0, 153.0, 9.377168415950573, 0.012215669755686605, 0.0, 2.0, 0.11364130878145463, 0.0016849199663016006, 0.0, 2.0, 0.050255396274143986] vector_metrics_garralda=[1.1253480019032869, -0.833136118297893, 0.5483045046643017, 0.1529711647392013, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.6462352983062533, -0.37351960493943703, 0.5137411697562665, 0.1535032232588168, 1.768023104771401, -1.4903069273500082, 0.6120398192626961, 0.14743273967910678, 0.26703590850185666, 0.013222984396606975, 0.47572028912241554, 0.152250368742705, 0.0, 0.0, 0.0, 0.0, 1.5915099146136111, -1.2623015275379141, 0.5627995911644904, 0.14672777822357258, 1.134263438094184, -0.8808132430085768, 0.5573443510260366, 0.15346768329580068, 0.48610046781798033, 0.2831921392634961, 0.23695802881074074, 0.07094004413985178, 1.0448465793701327, -0.2454813584360349, 0.2861960329993633, 0.08442936285412468, -0.9060885757481952, 1.3960633436515544, 0.2504816143698436, 0.10041648706120443, -0.8967570714925267, 1.2303896123313631, 0.38679184469518285, 0.10101800971627214, 0.05060214546205507, -1.04152420856521, 1.0033596491188745, 0.0053034472916412105, 0.05903925937801269, -1.0560789496173955, 1.0041793078037513, 0.00591528357012131, -0.9621843925530881, 0.05388831034055937, 0.8217902660342463, 0.06210741471701889, -1.7726024270708678, 2.136977857719295, 0.304089411573115, 0.07561134468282096, -1.8205906100508962, 2.137526571228061, 0.317066881095071, 0.07721384120385168, -1.7726024270708678, 2.136977857719295, 0.304089411573115, 0.07561134468282096, 1.833338377037656, -2.6408162941867217, 1.022732872521686, 0.07215228105019685, -1.9273097325667317, 1.94639785725667, 0.22235264175684902, 0.12850861621506354, -0.8202008684825528, 0.4160179294441865, 0.4796272652321243, 0.07521087893922275, -0.4337569351032027, 0.0947798536034781, 0.634517152870007, 0.18782904525165622, 1.0663437140920686, -0.3962277454112974, 0.3067295236847474, 0.0969461233931127, -1.7306713989278901, 2.1768889889496745, 0.006408261480662951, 0.14746203443109307] resource_usage=None resource_shape=None
+[Candidate Space] grid_size=10080, n_candidates=256 (n=2)
+[Candidate Space]  Generated 256 candidates via Sobol.
+[MetaLearning] Trained RF (WEIGHTED). Best params: {'regressor__rf__max_depth': 10, 'regressor__rf__max_features': 'sqrt', 'regressor__rf__n_estimators': 50}
+[MetaLearning] Weight stats: {'weights_min': 1e-06, 'weights_max': 0.9999999999544443, 'weights_mean': 0.09610563084363107}
+[MetaLearning] Saved WEIGHTED model to meta_rf_model.joblib
+[TurBO] Step 1 | -EI=-82.862 | mu_pred(T)=-12.15 | cfg=[  1   3   3   2   5 100   1]
+[TurBO][CAS] f_pred=403.44 vs f_th=210.00 -> SKIP
+[TurBO] Step 2 | -EI=-42.065 | mu_pred(T)=93.46 | cfg=[  2   2   4   1   4 200   1]
+[TurBO][CAS] f_pred=226.94 vs f_th=210.00 -> SKIP
+[TurBO] Step 3 | -EI=-37.874 | mu_pred(T)=147.09 | cfg=[ 2  3  3  2  2 50  1]
+[TurBO][CAS] f_pred=225.53 vs f_th=210.00 -> SKIP
+[TurBO] Step 4 | -EI=-36.836 | mu_pred(T)=116.44 | cfg=[  2   2   2   4   5 200   1]
+[TurBO][CAS] f_pred=200.80 vs f_th=210.00 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=2 driver_memory=2 executor_cores=2 executor_instances=4 executor_memory=5 sql_shuffle_partitions=200 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 4 --executor-cores 2 --executor-memory 5g --driver-memory 2g --driver-cores 2 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 13:19:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 13:19:15 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 13:19:16 INFO Configuration: resource-types.xml not found
+25/10/06 13:19:16 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 13:19:16 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 13:19:16 INFO Client: Will allocate AM container, with 2432 MB memory including 384 MB overhead
+25/10/06 13:19:16 INFO Client: Setting up container launch context for our AM
+25/10/06 13:19:16 INFO Client: Setting up the launch environment for our AM container
+25/10/06 13:19:16 INFO Client: Preparing resources for our AM container
+25/10/06 13:19:16 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 13:19:18 INFO Client: Uploading resource file:/tmp/spark-f665d58d-4c04-45eb-864c-f544e11db58f/__spark_libs__2545980113741415266.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0075/__spark_libs__2545980113741415266.zip
+25/10/06 13:19:19 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0075/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 13:19:22 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0075/sparkbench.conf
+25/10/06 13:19:22 INFO Client: Uploading resource file:/tmp/spark-f665d58d-4c04-45eb-864c-f544e11db58f/__spark_conf__3345405521661511688.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0075/__spark_conf__.zip
+25/10/06 13:19:22 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 13:19:22 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 13:19:22 INFO SecurityManager: Changing view acls groups to:
+25/10/06 13:19:22 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 13:19:22 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 13:19:22 INFO Client: Submitting application application_1759654566654_0075 to ResourceManager
+25/10/06 13:19:22 INFO YarnClientImpl: Submitted application application_1759654566654_0075
+
+=================================================================
+Detected application_1759654566654_0075
+=================================================================
+
+25/10/06 13:19:23 INFO Client: Application report for application_1759654566654_0075 (state: ACCEPTED)
+25/10/06 13:19:23 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759756762606
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0075/
+	 user: sparker
+25/10/06 13:19:24 INFO Client: Application report for application_1759654566654_0075 (state: ACCEPTED)
+25/10/06 13:19:25 INFO Client: Application report for application_1759654566654_0075 (state: ACCEPTED)
+25/10/06 13:19:26 INFO Client: Application report for application_1759654566654_0075 (state: ACCEPTED)
+25/10/06 13:19:27 INFO Client: Application report for application_1759654566654_0075 (state: ACCEPTED)
+25/10/06 13:19:28 INFO Client: Application report for application_1759654566654_0075 (state: ACCEPTED)
+25/10/06 13:19:29 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 34221
+	 queue: default
+	 start time: 1759756762606
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0075/
+	 user: sparker
+25/10/06 13:24:07 INFO Client: Application report for application_1759654566654_0075 (state: FINISHED)
+25/10/06 13:24:07 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 34221
+	 queue: default
+	 start time: 1759756762606
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0075/
+	 user: sparker
+25/10/06 13:24:07 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0075 with large data and queued
+=================================================================
+
+25/10/06 13:24:07 INFO ShutdownHookManager: Deleting directory /tmp/spark-f665d58d-4c04-45eb-864c-f544e11db58f
+25/10/06 13:24:07 INFO ShutdownHookManager: Deleting directory /tmp/spark-7ac6258a-8d7a-414d-84e9-58b25d90a1a9
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0075
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0075/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0075.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.00 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.02 seconds
+Time to create stages instrumentation: 0.09 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 0.99 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+1.193237
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+1.233021
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1792 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.002755 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.0021736621856689453 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+1.273800
+====================================================================================================
+Finished application vectorization for application_1759654566654_0075_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0075_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 1, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 278.9999999999999, 'acquisition_function_score': -36.83637113148947, 'resource_usage_value': 44.0, 'execution_time': 279, 'configuration': {'driver_cores': 2, 'driver_memory': 2, 'executor_cores': 2, 'executor_instances': 4, 'executor_memory': 5, 'sql_shuffle_partitions': 200, 'task_cpus': 1}, 'execution_time_error': 163, 'objective_function_predict': 116.00000000000003, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0075_lda_large documents into MongoDB
+[TurBO] Step 5 | -EI=-36.830 | mu_pred(T)=106.88 | cfg=[  2   3   2   2   2 150   2]
+[TurBO][CAS] f_pred=296.79 vs f_th=279.00 -> SKIP
+[TurBO] Step 6 | -EI=-74.459 | mu_pred(T)=56.69 | cfg=[  2   3   2   2   4 150   1]
+[TurBO][CAS] f_pred=75.18 vs f_th=279.00 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=2 driver_memory=3 executor_cores=2 executor_instances=2 executor_memory=4 sql_shuffle_partitions=150 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 2 --executor-cores 2 --executor-memory 4g --driver-memory 3g --driver-cores 2 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 13:24:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 13:24:52 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 13:24:52 INFO Configuration: resource-types.xml not found
+25/10/06 13:24:52 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 13:24:52 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 13:24:52 INFO Client: Will allocate AM container, with 3456 MB memory including 384 MB overhead
+25/10/06 13:24:52 INFO Client: Setting up container launch context for our AM
+25/10/06 13:24:52 INFO Client: Setting up the launch environment for our AM container
+25/10/06 13:24:52 INFO Client: Preparing resources for our AM container
+25/10/06 13:24:53 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 13:24:54 INFO Client: Uploading resource file:/tmp/spark-1acd743b-8a9b-4b13-8952-6f5e486c394f/__spark_libs__2278595599179469971.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0076/__spark_libs__2278595599179469971.zip
+25/10/06 13:24:55 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0076/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 13:24:57 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0076/sparkbench.conf
+25/10/06 13:24:57 INFO Client: Uploading resource file:/tmp/spark-1acd743b-8a9b-4b13-8952-6f5e486c394f/__spark_conf__2565309687811968956.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0076/__spark_conf__.zip
+25/10/06 13:24:57 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 13:24:57 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 13:24:57 INFO SecurityManager: Changing view acls groups to:
+25/10/06 13:24:57 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 13:24:57 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 13:24:57 INFO Client: Submitting application application_1759654566654_0076 to ResourceManager
+25/10/06 13:24:58 INFO YarnClientImpl: Submitted application application_1759654566654_0076
+
+=================================================================
+Detected application_1759654566654_0076
+=================================================================
+
+25/10/06 13:24:59 INFO Client: Application report for application_1759654566654_0076 (state: ACCEPTED)
+25/10/06 13:24:59 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759757097801
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0076/
+	 user: sparker
+25/10/06 13:25:00 INFO Client: Application report for application_1759654566654_0076 (state: ACCEPTED)
+25/10/06 13:25:01 INFO Client: Application report for application_1759654566654_0076 (state: ACCEPTED)
+25/10/06 13:25:02 INFO Client: Application report for application_1759654566654_0076 (state: ACCEPTED)
+25/10/06 13:25:03 INFO Client: Application report for application_1759654566654_0076 (state: ACCEPTED)
+25/10/06 13:25:04 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 33061
+	 queue: default
+	 start time: 1759757097801
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0076/
+	 user: sparker
+25/10/06 13:33:26 INFO Client: Application report for application_1759654566654_0076 (state: FINISHED)
+25/10/06 13:33:26 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 33061
+	 queue: default
+	 start time: 1759757097801
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0076/
+	 user: sparker
+25/10/06 13:33:26 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0076 with large data and queued
+=================================================================
+
+25/10/06 13:33:26 INFO ShutdownHookManager: Deleting directory /tmp/spark-4d570b4c-df29-4e1b-afbe-4c0745b35da2
+25/10/06 13:33:26 INFO ShutdownHookManager: Deleting directory /tmp/spark-1acd743b-8a9b-4b13-8952-6f5e486c394f
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0076
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0076.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.01 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.01 seconds
+Time to create jobs instrumentation: 0.06 seconds
+Time to create stages instrumentation: 0.32 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 2.64 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+3.709125
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+3.743181
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1784 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.012809 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.0075151920318603516 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+3.857529
+====================================================================================================
+Finished application vectorization for application_1759654566654_0076_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0076_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 2, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 503.00000000000006, 'acquisition_function_score': -74.45871494244203, 'resource_usage_value': 22.0, 'execution_time': 503, 'configuration': {'driver_cores': 2, 'driver_memory': 3, 'executor_cores': 2, 'executor_instances': 2, 'executor_memory': 4, 'sql_shuffle_partitions': 150, 'task_cpus': 1}, 'execution_time_error': 447, 'objective_function_predict': 56.00000000000001, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0076_lda_large documents into MongoDB
+[TurBO] Step 7 | -EI=-35.118 | mu_pred(T)=120.05 | cfg=[  1   3   2   3   3 150   1]
+[TurBO][CAS] f_pred=200.71 vs f_th=391.00 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=1 driver_memory=3 executor_cores=2 executor_instances=3 executor_memory=3 sql_shuffle_partitions=150 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 3 --executor-cores 2 --executor-memory 3g --driver-memory 3g --driver-cores 1 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 13:34:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 13:34:04 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 13:34:06 INFO Configuration: resource-types.xml not found
+25/10/06 13:34:06 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 13:34:06 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 13:34:06 INFO Client: Will allocate AM container, with 3456 MB memory including 384 MB overhead
+25/10/06 13:34:06 INFO Client: Setting up container launch context for our AM
+25/10/06 13:34:06 INFO Client: Setting up the launch environment for our AM container
+25/10/06 13:34:06 INFO Client: Preparing resources for our AM container
+25/10/06 13:34:06 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 13:34:07 INFO Client: Uploading resource file:/tmp/spark-14a2c23d-fb67-459b-ba82-b78b061d94ce/__spark_libs__2791778297563145377.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0077/__spark_libs__2791778297563145377.zip
+25/10/06 13:34:10 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0077/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 13:34:13 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0077/sparkbench.conf
+25/10/06 13:34:14 INFO Client: Uploading resource file:/tmp/spark-14a2c23d-fb67-459b-ba82-b78b061d94ce/__spark_conf__1300196562201286043.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0077/__spark_conf__.zip
+25/10/06 13:34:14 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 13:34:14 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 13:34:14 INFO SecurityManager: Changing view acls groups to:
+25/10/06 13:34:14 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 13:34:14 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 13:34:14 INFO Client: Submitting application application_1759654566654_0077 to ResourceManager
+25/10/06 13:34:14 INFO YarnClientImpl: Submitted application application_1759654566654_0077
+
+=================================================================
+Detected application_1759654566654_0077
+=================================================================
+
+25/10/06 13:34:15 INFO Client: Application report for application_1759654566654_0077 (state: ACCEPTED)
+25/10/06 13:34:15 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759757654747
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0077/
+	 user: sparker
+25/10/06 13:34:16 INFO Client: Application report for application_1759654566654_0077 (state: ACCEPTED)
+25/10/06 13:34:17 INFO Client: Application report for application_1759654566654_0077 (state: ACCEPTED)
+25/10/06 13:34:18 INFO Client: Application report for application_1759654566654_0077 (state: ACCEPTED)
+25/10/06 13:34:19 INFO Client: Application report for application_1759654566654_0077 (state: ACCEPTED)
+25/10/06 13:34:20 INFO Client: Application report for application_1759654566654_0077 (state: ACCEPTED)
+25/10/06 13:34:21 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-2
+	 ApplicationMaster RPC port: 46321
+	 queue: default
+	 start time: 1759757654747
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0077/
+	 user: sparker
+25/10/06 13:41:12 INFO Client: Application report for application_1759654566654_0077 (state: FINISHED)
+25/10/06 13:41:12 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-2
+	 ApplicationMaster RPC port: 46321
+	 queue: default
+	 start time: 1759757654747
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0077/
+	 user: sparker
+25/10/06 13:41:13 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0077 with large data and queued
+=================================================================
+
+25/10/06 13:41:13 INFO ShutdownHookManager: Deleting directory /tmp/spark-7c2ed8c9-4d4f-49a1-8393-7fb7a34716c4
+25/10/06 13:41:13 INFO ShutdownHookManager: Deleting directory /tmp/spark-14a2c23d-fb67-459b-ba82-b78b061d94ce
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0077
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0077/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0077.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.01 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.01 seconds
+Time to create jobs instrumentation: 0.05 seconds
+Time to create stages instrumentation: 0.25 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 2.91 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+3.657768
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+3.697669
+====================================================================================================
+SQL PLANS: 2 | JOBS: 29 | JOBS WITHOUT SQL PLAN: 27 | STAGES: 40 | STAGES SKIPPED: 0 | TASK: 1796 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.013058 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.009560108184814453 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+3.856955
+====================================================================================================
+Finished application vectorization for application_1759654566654_0077_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0077_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 3, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 412.99999999999994, 'acquisition_function_score': -35.117932657609664, 'resource_usage_value': 21.0, 'execution_time': 413, 'configuration': {'driver_cores': 1, 'driver_memory': 3, 'executor_cores': 2, 'executor_instances': 3, 'executor_memory': 3, 'sql_shuffle_partitions': 150, 'task_cpus': 1}, 'execution_time_error': 293, 'objective_function_predict': 120.00000000000003, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0077_lda_large documents into MongoDB
+[TurBO] Step 8 | -EI=-32.958 | mu_pred(T)=126.96 | cfg=[  2   4   2   3   4 100   1]
+[TurBO][CAS] f_pred=145.78 vs f_th=398.33 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=2 driver_memory=4 executor_cores=2 executor_instances=3 executor_memory=4 sql_shuffle_partitions=100 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 3 --executor-cores 2 --executor-memory 4g --driver-memory 4g --driver-cores 2 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 13:42:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 13:42:06 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 13:42:09 INFO Configuration: resource-types.xml not found
+25/10/06 13:42:09 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 13:42:09 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 13:42:09 INFO Client: Will allocate AM container, with 4505 MB memory including 409 MB overhead
+25/10/06 13:42:09 INFO Client: Setting up container launch context for our AM
+25/10/06 13:42:09 INFO Client: Setting up the launch environment for our AM container
+25/10/06 13:42:09 INFO Client: Preparing resources for our AM container
+25/10/06 13:42:09 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 13:42:10 INFO Client: Uploading resource file:/tmp/spark-a1b8de4a-e68c-4fab-9077-221dd5e47fab/__spark_libs__4672729856669653719.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0078/__spark_libs__4672729856669653719.zip
+25/10/06 13:42:13 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0078/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 13:42:17 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0078/sparkbench.conf
+25/10/06 13:42:17 INFO Client: Uploading resource file:/tmp/spark-a1b8de4a-e68c-4fab-9077-221dd5e47fab/__spark_conf__5097930115687621690.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0078/__spark_conf__.zip
+25/10/06 13:42:17 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 13:42:17 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 13:42:17 INFO SecurityManager: Changing view acls groups to:
+25/10/06 13:42:17 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 13:42:17 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 13:42:18 INFO Client: Submitting application application_1759654566654_0078 to ResourceManager
+25/10/06 13:42:18 INFO YarnClientImpl: Submitted application application_1759654566654_0078
+
+=================================================================
+Detected application_1759654566654_0078
+=================================================================
+
+25/10/06 13:42:19 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:19 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759758138029
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0078/
+	 user: sparker
+25/10/06 13:42:20 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:21 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:22 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:23 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:24 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:25 INFO Client: Application report for application_1759654566654_0078 (state: ACCEPTED)
+25/10/06 13:42:26 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-3
+	 ApplicationMaster RPC port: 42647
+	 queue: default
+	 start time: 1759758138029
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0078/
+	 user: sparker
+25/10/06 13:48:08 INFO Client: Application report for application_1759654566654_0078 (state: FINISHED)
+25/10/06 13:48:08 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-3
+	 ApplicationMaster RPC port: 42647
+	 queue: default
+	 start time: 1759758138029
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0078/
+	 user: sparker
+25/10/06 13:48:08 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0078 with large data and queued
+=================================================================
+
+25/10/06 13:48:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-b41cc2ea-cdb9-4926-8680-370b936370b5
+25/10/06 13:48:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-a1b8de4a-e68c-4fab-9077-221dd5e47fab
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0078
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0078/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0078.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.00 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.03 seconds
+Time to create stages instrumentation: 0.14 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.44 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+1.992746
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+2.020120
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1788 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.004370 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.0027463436126708984 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+2.105261
+====================================================================================================
+Finished application vectorization for application_1759654566654_0078_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0078_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 4, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 346.00000000000006, 'acquisition_function_score': -32.9580216611909, 'resource_usage_value': 32.0, 'execution_time': 346, 'configuration': {'driver_cores': 2, 'driver_memory': 4, 'executor_cores': 2, 'executor_instances': 3, 'executor_memory': 4, 'sql_shuffle_partitions': 100, 'task_cpus': 1}, 'execution_time_error': 220, 'objective_function_predict': 125.99999999999999, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0078_lda_large documents into MongoDB
+[TurBO] Step 9 | -EI=-33.858 | mu_pred(T)=193.71 | cfg=[  2   4   2   2   5 300   1]
+[TurBO][CAS] f_pred=181.39 vs f_th=385.25 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=2 driver_memory=4 executor_cores=2 executor_instances=2 executor_memory=5 sql_shuffle_partitions=300 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 2 --executor-cores 2 --executor-memory 5g --driver-memory 4g --driver-cores 2 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 13:48:55 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 13:48:56 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 13:48:58 INFO Configuration: resource-types.xml not found
+25/10/06 13:48:58 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 13:48:58 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 13:48:58 INFO Client: Will allocate AM container, with 4505 MB memory including 409 MB overhead
+25/10/06 13:48:58 INFO Client: Setting up container launch context for our AM
+25/10/06 13:48:58 INFO Client: Setting up the launch environment for our AM container
+25/10/06 13:48:58 INFO Client: Preparing resources for our AM container
+25/10/06 13:48:58 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 13:48:59 INFO Client: Uploading resource file:/tmp/spark-332e6af9-acbf-491d-bcb7-94e4cc670a32/__spark_libs__236783089966474461.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0079/__spark_libs__236783089966474461.zip
+25/10/06 13:49:02 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0079/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 13:49:05 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0079/sparkbench.conf
+25/10/06 13:49:05 INFO Client: Uploading resource file:/tmp/spark-332e6af9-acbf-491d-bcb7-94e4cc670a32/__spark_conf__6646203836430306655.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0079/__spark_conf__.zip
+25/10/06 13:49:05 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 13:49:05 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 13:49:05 INFO SecurityManager: Changing view acls groups to:
+25/10/06 13:49:05 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 13:49:05 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 13:49:05 INFO Client: Submitting application application_1759654566654_0079 to ResourceManager
+25/10/06 13:49:06 INFO YarnClientImpl: Submitted application application_1759654566654_0079
+
+=================================================================
+Detected application_1759654566654_0079
+=================================================================
+
+25/10/06 13:49:07 INFO Client: Application report for application_1759654566654_0079 (state: ACCEPTED)
+25/10/06 13:49:07 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759758545983
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0079/
+	 user: sparker
+25/10/06 13:49:08 INFO Client: Application report for application_1759654566654_0079 (state: ACCEPTED)
+25/10/06 13:49:09 INFO Client: Application report for application_1759654566654_0079 (state: ACCEPTED)
+25/10/06 13:49:10 INFO Client: Application report for application_1759654566654_0079 (state: ACCEPTED)
+25/10/06 13:49:11 INFO Client: Application report for application_1759654566654_0079 (state: ACCEPTED)
+25/10/06 13:49:12 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-3
+	 ApplicationMaster RPC port: 37129
+	 queue: default
+	 start time: 1759758545983
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0079/
+	 user: sparker
+25/10/06 13:56:19 INFO Client: Application report for application_1759654566654_0079 (state: FINISHED)
+25/10/06 13:56:19 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-3
+	 ApplicationMaster RPC port: 37129
+	 queue: default
+	 start time: 1759758545983
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0079/
+	 user: sparker
+25/10/06 13:56:19 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0079 with large data and queued
+=================================================================
+
+25/10/06 13:56:19 INFO ShutdownHookManager: Deleting directory /tmp/spark-332e6af9-acbf-491d-bcb7-94e4cc670a32
+25/10/06 13:56:19 INFO ShutdownHookManager: Deleting directory /tmp/spark-61452e86-aa41-435b-9baf-d2ce7426b777
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0079
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0079/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0079.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.01 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.04 seconds
+Time to create stages instrumentation: 0.14 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.75 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+2.065160
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+2.099406
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1784 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.006212 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.005878925323486328 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+2.194659
+====================================================================================================
+Finished application vectorization for application_1759654566654_0079_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0079_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 5, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 428.0, 'acquisition_function_score': -33.85760116361932, 'resource_usage_value': 28.0, 'execution_time': 428, 'configuration': {'driver_cores': 2, 'driver_memory': 4, 'executor_cores': 2, 'executor_instances': 2, 'executor_memory': 5, 'sql_shuffle_partitions': 300, 'task_cpus': 1}, 'execution_time_error': 235, 'objective_function_predict': 193.00000000000003, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0079_lda_large documents into MongoDB
+[TurBO] Step 10 | -EI=-31.352 | mu_pred(T)=103.46 | cfg=[  3   3   2   2   3 100   1]
+[TurBO][CAS] f_pred=229.80 vs f_th=393.80 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=3 driver_memory=3 executor_cores=2 executor_instances=2 executor_memory=3 sql_shuffle_partitions=100 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 2 --executor-cores 2 --executor-memory 3g --driver-memory 3g --driver-cores 3 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 13:57:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 13:57:06 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 13:57:08 INFO Configuration: resource-types.xml not found
+25/10/06 13:57:08 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 13:57:08 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 13:57:08 INFO Client: Will allocate AM container, with 3456 MB memory including 384 MB overhead
+25/10/06 13:57:08 INFO Client: Setting up container launch context for our AM
+25/10/06 13:57:08 INFO Client: Setting up the launch environment for our AM container
+25/10/06 13:57:08 INFO Client: Preparing resources for our AM container
+25/10/06 13:57:09 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 13:57:10 INFO Client: Uploading resource file:/tmp/spark-7b1f889e-0320-4195-ae09-c1ac209e416c/__spark_libs__4019510828945656372.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0080/__spark_libs__4019510828945656372.zip
+25/10/06 13:57:12 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0080/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 13:57:16 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0080/sparkbench.conf
+25/10/06 13:57:16 INFO Client: Uploading resource file:/tmp/spark-7b1f889e-0320-4195-ae09-c1ac209e416c/__spark_conf__5826885491464956441.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0080/__spark_conf__.zip
+25/10/06 13:57:16 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 13:57:16 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 13:57:16 INFO SecurityManager: Changing view acls groups to:
+25/10/06 13:57:16 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 13:57:16 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 13:57:17 INFO Client: Submitting application application_1759654566654_0080 to ResourceManager
+25/10/06 13:57:17 INFO YarnClientImpl: Submitted application application_1759654566654_0080
+
+=================================================================
+Detected application_1759654566654_0080
+=================================================================
+
+25/10/06 13:57:18 INFO Client: Application report for application_1759654566654_0080 (state: ACCEPTED)
+25/10/06 13:57:18 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759759037076
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0080/
+	 user: sparker
+25/10/06 13:57:19 INFO Client: Application report for application_1759654566654_0080 (state: ACCEPTED)
+25/10/06 13:57:20 INFO Client: Application report for application_1759654566654_0080 (state: ACCEPTED)
+25/10/06 13:57:21 INFO Client: Application report for application_1759654566654_0080 (state: ACCEPTED)
+25/10/06 13:57:22 INFO Client: Application report for application_1759654566654_0080 (state: ACCEPTED)
+25/10/06 13:57:23 INFO Client: Application report for application_1759654566654_0080 (state: ACCEPTED)
+25/10/06 13:57:24 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-2
+	 ApplicationMaster RPC port: 35307
+	 queue: default
+	 start time: 1759759037076
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0080/
+	 user: sparker
+25/10/06 14:02:01 INFO Client: Application report for application_1759654566654_0080 (state: FINISHED)
+25/10/06 14:02:01 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-2
+	 ApplicationMaster RPC port: 35307
+	 queue: default
+	 start time: 1759759037076
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0080/
+	 user: sparker
+25/10/06 14:02:01 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0080 with large data and queued
+=================================================================
+
+25/10/06 14:02:01 INFO ShutdownHookManager: Deleting directory /tmp/spark-7b1f889e-0320-4195-ae09-c1ac209e416c
+25/10/06 14:02:01 INFO ShutdownHookManager: Deleting directory /tmp/spark-8647d16a-1d38-4fa6-8dfb-2789f9d2c106
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0080
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0080/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0080.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.01 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.03 seconds
+Time to create stages instrumentation: 0.16 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.55 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+1.984406
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+2.024558
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1784 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.007136 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.0029973983764648438 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+2.103889
+====================================================================================================
+Finished application vectorization for application_1759654566654_0080_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0080_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 6, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 278.9999999999999, 'acquisition_function_score': -31.35162268163348, 'resource_usage_value': 21.0, 'execution_time': 279, 'configuration': {'driver_cores': 3, 'driver_memory': 3, 'executor_cores': 2, 'executor_instances': 2, 'executor_memory': 3, 'sql_shuffle_partitions': 100, 'task_cpus': 1}, 'execution_time_error': 176, 'objective_function_predict': 102.99999999999999, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0080_lda_large documents into MongoDB
+[TurBO] Step 11 | -EI=-30.947 | mu_pred(T)=130.43 | cfg=[  2   3   1   3   2 300   1]
+[TurBO][CAS] f_pred=466.86 vs f_th=374.67 -> SKIP
+[TurBO] Step 12 | -EI=-27.056 | mu_pred(T)=231.83 | cfg=[  1   3   2   3   2 300   1]
+[TurBO][CAS] f_pred=297.92 vs f_th=374.67 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=1 driver_memory=3 executor_cores=2 executor_instances=3 executor_memory=2 sql_shuffle_partitions=300 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 3 --executor-cores 2 --executor-memory 2g --driver-memory 3g --driver-cores 1 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 14:02:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 14:03:01 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 14:03:03 INFO Configuration: resource-types.xml not found
+25/10/06 14:03:03 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 14:03:03 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 14:03:03 INFO Client: Will allocate AM container, with 3456 MB memory including 384 MB overhead
+25/10/06 14:03:03 INFO Client: Setting up container launch context for our AM
+25/10/06 14:03:03 INFO Client: Setting up the launch environment for our AM container
+25/10/06 14:03:03 INFO Client: Preparing resources for our AM container
+25/10/06 14:03:03 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 14:03:04 INFO Client: Uploading resource file:/tmp/spark-5e5e9071-05c8-4595-a9b7-19e7cc4b4dc9/__spark_libs__7225899417433546631.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0081/__spark_libs__7225899417433546631.zip
+25/10/06 14:03:06 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0081/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 14:03:09 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0081/sparkbench.conf
+25/10/06 14:03:10 INFO Client: Uploading resource file:/tmp/spark-5e5e9071-05c8-4595-a9b7-19e7cc4b4dc9/__spark_conf__304281348948665607.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0081/__spark_conf__.zip
+25/10/06 14:03:10 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 14:03:10 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 14:03:10 INFO SecurityManager: Changing view acls groups to:
+25/10/06 14:03:10 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 14:03:10 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 14:03:10 INFO Client: Submitting application application_1759654566654_0081 to ResourceManager
+25/10/06 14:03:10 INFO YarnClientImpl: Submitted application application_1759654566654_0081
+
+=================================================================
+Detected application_1759654566654_0081
+=================================================================
+
+25/10/06 14:03:11 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:11 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759759390545
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0081/
+	 user: sparker
+25/10/06 14:03:12 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:13 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:14 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:15 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:16 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:17 INFO Client: Application report for application_1759654566654_0081 (state: ACCEPTED)
+25/10/06 14:03:18 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 45301
+	 queue: default
+	 start time: 1759759390545
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0081/
+	 user: sparker
+25/10/06 14:06:44 INFO Client: Application report for application_1759654566654_0081 (state: FINISHED)
+25/10/06 14:06:44 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 45301
+	 queue: default
+	 start time: 1759759390545
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0081/
+	 user: sparker
+25/10/06 14:06:44 INFO Client: Deleted staging directory hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0081
+25/10/06 14:06:44 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0081 with large data and queued
+=================================================================
+
+25/10/06 14:06:44 INFO ShutdownHookManager: Deleting directory /tmp/spark-5e5e9071-05c8-4595-a9b7-19e7cc4b4dc9
+25/10/06 14:06:44 INFO ShutdownHookManager: Deleting directory /tmp/spark-e6e208f3-7e3f-4097-8fca-f0b6289df8ce
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0081
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0081/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0081.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.01 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.02 seconds
+Time to create stages instrumentation: 0.13 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.77 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+2.180737
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+2.228016
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1788 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.009373 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.004247903823852539 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+2.271502
+====================================================================================================
+Finished application vectorization for application_1759654566654_0081_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0081_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 7, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 208.99999999999994, 'acquisition_function_score': -27.056432693784764, 'resource_usage_value': 15.0, 'execution_time': 209, 'configuration': {'driver_cores': 1, 'driver_memory': 3, 'executor_cores': 2, 'executor_instances': 3, 'executor_memory': 2, 'sql_shuffle_partitions': 300, 'task_cpus': 1}, 'execution_time_error': 22, 'objective_function_predict': 230.99999999999997, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0081_lda_large documents into MongoDB
+[TurBO] Step 13 | -EI=-25.259 | mu_pred(T)=110.48 | cfg=[  2   3   3   2   3 100   1]
+[TurBO][CAS] f_pred=131.67 vs f_th=351.00 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=2 driver_memory=3 executor_cores=3 executor_instances=2 executor_memory=3 sql_shuffle_partitions=100 task_cpus=1
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 2 --executor-cores 3 --executor-memory 3g --driver-memory 3g --driver-cores 2 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 14:07:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 14:07:37 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 14:07:39 INFO Configuration: resource-types.xml not found
+25/10/06 14:07:39 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 14:07:39 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 14:07:39 INFO Client: Will allocate AM container, with 3456 MB memory including 384 MB overhead
+25/10/06 14:07:39 INFO Client: Setting up container launch context for our AM
+25/10/06 14:07:39 INFO Client: Setting up the launch environment for our AM container
+25/10/06 14:07:39 INFO Client: Preparing resources for our AM container
+25/10/06 14:07:39 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 14:07:41 INFO Client: Uploading resource file:/tmp/spark-688cca65-679d-4eb8-949b-4395c2ecc773/__spark_libs__683903065813299710.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0082/__spark_libs__683903065813299710.zip
+25/10/06 14:07:43 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0082/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 14:07:47 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0082/sparkbench.conf
+25/10/06 14:07:47 INFO Client: Uploading resource file:/tmp/spark-688cca65-679d-4eb8-949b-4395c2ecc773/__spark_conf__5281235764468429962.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0082/__spark_conf__.zip
+25/10/06 14:07:47 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 14:07:47 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 14:07:47 INFO SecurityManager: Changing view acls groups to:
+25/10/06 14:07:47 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 14:07:47 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 14:07:48 INFO Client: Submitting application application_1759654566654_0082 to ResourceManager
+25/10/06 14:07:48 INFO YarnClientImpl: Submitted application application_1759654566654_0082
+
+=================================================================
+Detected application_1759654566654_0082
+=================================================================
+
+25/10/06 14:07:49 INFO Client: Application report for application_1759654566654_0082 (state: ACCEPTED)
+25/10/06 14:07:49 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759759668200
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0082/
+	 user: sparker
+25/10/06 14:07:50 INFO Client: Application report for application_1759654566654_0082 (state: ACCEPTED)
+25/10/06 14:07:51 INFO Client: Application report for application_1759654566654_0082 (state: ACCEPTED)
+25/10/06 14:07:52 INFO Client: Application report for application_1759654566654_0082 (state: ACCEPTED)
+25/10/06 14:07:53 INFO Client: Application report for application_1759654566654_0082 (state: ACCEPTED)
+25/10/06 14:07:54 INFO Client: Application report for application_1759654566654_0082 (state: ACCEPTED)
+25/10/06 14:07:55 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-2
+	 ApplicationMaster RPC port: 41379
+	 queue: default
+	 start time: 1759759668200
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0082/
+	 user: sparker
+25/10/06 14:14:02 INFO Client: Application report for application_1759654566654_0082 (state: FINISHED)
+25/10/06 14:14:02 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-2
+	 ApplicationMaster RPC port: 41379
+	 queue: default
+	 start time: 1759759668200
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0082/
+	 user: sparker
+25/10/06 14:14:02 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0082 with large data and queued
+=================================================================
+
+25/10/06 14:14:02 INFO ShutdownHookManager: Deleting directory /tmp/spark-c113ebd7-0f58-410e-9d78-4efedf5fcfec
+25/10/06 14:14:02 INFO ShutdownHookManager: Deleting directory /tmp/spark-688cca65-679d-4eb8-949b-4395c2ecc773
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0082
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0082/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0082.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.01 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.01 seconds
+Time to create jobs instrumentation: 0.04 seconds
+Time to create stages instrumentation: 0.15 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.71 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+2.145653
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+2.201286
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1788 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.010766 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.007872819900512695 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+2.324394
+====================================================================================================
+Finished application vectorization for application_1759654566654_0082_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0082_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 8, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 368.9999999999999, 'acquisition_function_score': -25.258502875417395, 'resource_usage_value': 24.0, 'execution_time': 369, 'configuration': {'driver_cores': 2, 'driver_memory': 3, 'executor_cores': 3, 'executor_instances': 2, 'executor_memory': 3, 'sql_shuffle_partitions': 100, 'task_cpus': 1}, 'execution_time_error': 259, 'objective_function_predict': 109.99999999999997, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0082_lda_large documents into MongoDB
+[TurBO] Step 14 | -EI=-26.391 | mu_pred(T)=119.11 | cfg=[  2   3   2   3   3 100   2]
+[TurBO][CAS] f_pred=130.89 vs f_th=353.25 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=2 driver_memory=3 executor_cores=2 executor_instances=3 executor_memory=3 sql_shuffle_partitions=100 task_cpus=2
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 3 --executor-cores 2 --executor-memory 3g --driver-memory 3g --driver-cores 2 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 14:14:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 14:14:52 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 14:14:54 INFO Configuration: resource-types.xml not found
+25/10/06 14:14:54 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 14:14:54 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 14:14:54 INFO Client: Will allocate AM container, with 3456 MB memory including 384 MB overhead
+25/10/06 14:14:54 INFO Client: Setting up container launch context for our AM
+25/10/06 14:14:54 INFO Client: Setting up the launch environment for our AM container
+25/10/06 14:14:55 INFO Client: Preparing resources for our AM container
+25/10/06 14:14:55 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 14:14:56 INFO Client: Uploading resource file:/tmp/spark-216bd0f2-714d-490b-845a-d3a0135231b4/__spark_libs__2136565485505180858.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0083/__spark_libs__2136565485505180858.zip
+25/10/06 14:14:58 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0083/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 14:15:01 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0083/sparkbench.conf
+25/10/06 14:15:02 INFO Client: Uploading resource file:/tmp/spark-216bd0f2-714d-490b-845a-d3a0135231b4/__spark_conf__7089843322722757663.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0083/__spark_conf__.zip
+25/10/06 14:15:02 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 14:15:02 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 14:15:02 INFO SecurityManager: Changing view acls groups to:
+25/10/06 14:15:02 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 14:15:02 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 14:15:02 INFO Client: Submitting application application_1759654566654_0083 to ResourceManager
+25/10/06 14:15:02 INFO YarnClientImpl: Submitted application application_1759654566654_0083
+
+=================================================================
+Detected application_1759654566654_0083
+=================================================================
+
+25/10/06 14:15:03 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:03 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759760102662
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0083/
+	 user: sparker
+25/10/06 14:15:04 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:05 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:06 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:07 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:08 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:09 INFO Client: Application report for application_1759654566654_0083 (state: ACCEPTED)
+25/10/06 14:15:10 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 39673
+	 queue: default
+	 start time: 1759760102662
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0083/
+	 user: sparker
+25/10/06 14:21:09 INFO Client: Application report for application_1759654566654_0083 (state: FINISHED)
+25/10/06 14:21:09 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-1
+	 ApplicationMaster RPC port: 39673
+	 queue: default
+	 start time: 1759760102662
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0083/
+	 user: sparker
+25/10/06 14:21:09 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0083 with large data and queued
+=================================================================
+
+25/10/06 14:21:09 INFO ShutdownHookManager: Deleting directory /tmp/spark-216bd0f2-714d-490b-845a-d3a0135231b4
+25/10/06 14:21:09 INFO ShutdownHookManager: Deleting directory /tmp/spark-1307c7c5-d76a-4c93-b5dc-de568d3a16d1
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0083
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0083/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0083.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.00 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.02 seconds
+Time to create stages instrumentation: 0.09 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.18 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+1.394500
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+1.414474
+====================================================================================================
+SQL PLANS: 2 | JOBS: 27 | JOBS WITHOUT SQL PLAN: 25 | STAGES: 38 | STAGES SKIPPED: 0 | TASK: 1788 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.003150 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.0028498172760009766 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+1.492319
+====================================================================================================
+Finished application vectorization for application_1759654566654_0083_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0083_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 9, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 361.9999999999999, 'acquisition_function_score': -26.390620288096432, 'resource_usage_value': 24.0, 'execution_time': 362, 'configuration': {'driver_cores': 2, 'driver_memory': 3, 'executor_cores': 2, 'executor_instances': 3, 'executor_memory': 3, 'sql_shuffle_partitions': 100, 'task_cpus': 2}, 'execution_time_error': 243, 'objective_function_predict': 118.99999999999997, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0083_lda_large documents into MongoDB
+[TurBO] Step 15 | -EI=-31.167 | mu_pred(T)=163.44 | cfg=[  1   2   4   2   2 150   1]
+[TurBO][CAS] f_pred=466.33 vs f_th=354.22 -> SKIP
+[TurBO] Step 16 | -EI=-22.659 | mu_pred(T)=192.35 | cfg=[  1   4   2   2   4 250   2]
+[TurBO][CAS] f_pred=174.59 vs f_th=354.22 -> RUN
+base_path_hibench='D:\\Spark\\hadoop-spark-cluster\\shared-master\\HiBench2' spark_history_server_url='http://localhost:18080/api/v1/applications/'
+hostname='spark-cluster-master' port=2222 username='sparker' password='sparker' command='cd /home/sparker/shared/HiBench2 && ./bin/run_all.sh --skip-if-exists'
+Running HiBench Spark job with data scale: large, framework: turbo_bo_baseline, config: driver_cores=1 driver_memory=4 executor_cores=2 executor_instances=2 executor_memory=4 sql_shuffle_partitions=250 task_cpus=2
+./bin
+/home/sparker/shared/HiBench2
+*** Skipping data preparation for workloads ***
+Run ml/lda/spark
+Exec script: /home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+patching args=
+start LDA bench
+Deleted hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+Export env: SPARKBENCH_PROPERTIES_FILES=/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf
+Export env: HADOOP_CONF_DIR=/home/sparker/hadoop-3.3.2/etc/hadoop
+Submit Spark job: /home/sparker/spark-3.3.2-bin-hadoop3/bin/spark-submit            --files /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf           --properties-file /home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/spark.conf           --conf spark.executorEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --conf spark.yarn.appMasterEnv.SPARKBENCH_PROPERTIES_FILES=sparkbench.conf           --class com.intel.hibench.sparkbench.ml.LDAExample           --master yarn --num-executors 2 --executor-cores 2 --executor-memory 4g --driver-memory 4g --driver-cores 1 --deploy-mode cluster /home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar --numTopics 30 --maxIterations 10 --optimizer online --maxResultSize 3g hdfs://172.30.0.20:9000/HiBench/LDA/Input/large hdfs://172.30.0.20:9000/HiBench/LDA/Output/large
+25/10/06 14:21:55 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/10/06 14:21:57 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at spark-cluster-master/172.30.0.20:8032
+25/10/06 14:21:58 INFO Configuration: resource-types.xml not found
+25/10/06 14:21:58 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+25/10/06 14:21:58 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (46080 MB per container)
+25/10/06 14:21:58 INFO Client: Will allocate AM container, with 4505 MB memory including 409 MB overhead
+25/10/06 14:21:58 INFO Client: Setting up container launch context for our AM
+25/10/06 14:21:58 INFO Client: Setting up the launch environment for our AM container
+25/10/06 14:21:58 INFO Client: Preparing resources for our AM container
+25/10/06 14:21:58 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+25/10/06 14:21:59 INFO Client: Uploading resource file:/tmp/spark-b2d27a39-bb2d-4117-991d-32456d7cb3f9/__spark_libs__4319687468603832211.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0084/__spark_libs__4319687468603832211.zip
+25/10/06 14:22:00 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/sparkbench/assembly/target/sparkbench-assembly-8.0-SNAPSHOT-dist.jar -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0084/sparkbench-assembly-8.0-SNAPSHOT-dist.jar
+25/10/06 14:22:03 INFO Client: Uploading resource file:/home/sparker/shared/HiBench2/report/lda/spark/conf/sparkbench/sparkbench.conf -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0084/sparkbench.conf
+25/10/06 14:22:03 INFO Client: Uploading resource file:/tmp/spark-b2d27a39-bb2d-4117-991d-32456d7cb3f9/__spark_conf__7558391458687384480.zip -> hdfs://spark-cluster-master:9000/user/sparker/.sparkStaging/application_1759654566654_0084/__spark_conf__.zip
+25/10/06 14:22:03 INFO SecurityManager: Changing view acls to: sparker
+25/10/06 14:22:03 INFO SecurityManager: Changing modify acls to: sparker
+25/10/06 14:22:03 INFO SecurityManager: Changing view acls groups to:
+25/10/06 14:22:03 INFO SecurityManager: Changing modify acls groups to:
+25/10/06 14:22:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(sparker); groups with view permissions: Set(); users  with modify permissions: Set(sparker); groups with modify permissions: Set()
+25/10/06 14:22:03 INFO Client: Submitting application application_1759654566654_0084 to ResourceManager
+25/10/06 14:22:03 INFO YarnClientImpl: Submitted application application_1759654566654_0084
+
+=================================================================
+Detected application_1759654566654_0084
+=================================================================
+
+25/10/06 14:22:04 INFO Client: Application report for application_1759654566654_0084 (state: ACCEPTED)
+25/10/06 14:22:04 INFO Client:
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1759760523435
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0084/
+	 user: sparker
+25/10/06 14:22:05 INFO Client: Application report for application_1759654566654_0084 (state: ACCEPTED)
+25/10/06 14:22:06 INFO Client: Application report for application_1759654566654_0084 (state: ACCEPTED)
+25/10/06 14:22:07 INFO Client: Application report for application_1759654566654_0084 (state: ACCEPTED)
+25/10/06 14:22:08 INFO Client: Application report for application_1759654566654_0084 (state: ACCEPTED)
+25/10/06 14:22:09 INFO Client: Application report for application_1759654566654_0084 (state: ACCEPTED)
+25/10/06 14:22:10 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-3
+	 ApplicationMaster RPC port: 41575
+	 queue: default
+	 start time: 1759760523435
+	 final status: UNDEFINED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0084/
+	 user: sparker
+25/10/06 14:37:36 INFO Client: Application report for application_1759654566654_0084 (state: FINISHED)
+25/10/06 14:37:36 INFO Client:
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: spark-cluster-slave-3
+	 ApplicationMaster RPC port: 41575
+	 queue: default
+	 start time: 1759760523435
+	 final status: SUCCEEDED
+	 tracking URL: http://spark-cluster-master:8088/proxy/application_1759654566654_0084/
+	 user: sparker
+25/10/06 14:37:36 INFO ShutdownHookManager: Shutdown hook called
+
+=================================================================
+Finished application_1759654566654_0084 with large data and queued
+=================================================================
+
+25/10/06 14:37:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-3b7384fb-dcc2-480e-ab85-d6203aee5d62
+25/10/06 14:37:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-b2d27a39-bb2d-4117-991d-32456d7cb3f9
+/home/sparker/shared/HiBench2/bin/workloads/ml/lda/spark/run.sh
+Run all done!
+Characterizing workload for application ID: application_1759654566654_0084
+Failed to download Spark logs, we'll retry in next iteration 1: 500 Server Error: Server Error for url: http://localhost:18080/api/v1/applications/application_1759654566654_0084/logs
+====================================================================================================
+Processing:
+D:\Spark\hadoop-spark-cluster\shared-master\HiBench2\logs\application_1759654566654_0084.zip
+====================================================================================================
+Benchmark Name: lda
+Time to create app instrumentation: 0.00 seconds
+Time to create executors instrumentation: 0.00 seconds
+Time to create sql plans instrumentation: 0.00 seconds
+Time to create jobs instrumentation: 0.02 seconds
+Time to create stages instrumentation: 0.10 seconds
+Error for not correlation 0*********************
+Time to create tasks instrumentation: 1.15 seconds
+====================================================================================================
+1) Elapsed time to create profile of the sparkeventlog
+1.377286
+====================================================================================================
+INSERT 1 documents into MongoDB
+====================================================================================================
+2) Elapsed time to create statistic vectors
+1.393537
+====================================================================================================
+SQL PLANS: 2 | JOBS: 28 | JOBS WITHOUT SQL PLAN: 26 | STAGES: 39 | STAGES SKIPPED: 0 | TASK: 1788 TASK_WITH_ERRORS: 0 |
+Get distributions elapsed_time: 0.003209 seconds
+Starting parallel processing.
+Time taken for parallel processing: 0.0033676624298095703 seconds
+UPDATE (already exits) 1 documents into MongoDB
+====================================================================================================
+3) Elapsed time to create Workload characterization
+1.468429
+====================================================================================================
+Finished application vectorization for application_1759654566654_0084_lda_large
+Saving optimized workload into MongoDB: {'_id': 'application_1759654566654_0084_lda_large', 'experiment_id': 'lda_q1_evaluation', 'experiment_iteration': 10, 'target_workload': {'id': 'application_1753112283118_0246_lda_large', 'execution_time': 210, 'name': 'lda', 'input_data_size': 'large', 'configuration': {'driver_cores': 2, 'driver_memory_gb': 3, 'dynamic_allocation': False, 'executor_cores': 2, 'executor_instances': 5, 'executor_memory_gb': 3, 'sql_adaptive': False, 'sql_shuffle_partitions': 300, 'task_cpus': 1}}, 'objective_function_real': 927.9999999999997, 'acquisition_function_score': -22.659088040769177, 'resource_usage_value': 20.0, 'execution_time': 928, 'configuration': {'driver_cores': 1, 'driver_memory': 4, 'executor_cores': 2, 'executor_instances': 2, 'executor_memory': 4, 'sql_shuffle_partitions': 250, 'task_cpus': 2}, 'execution_time_error': 736, 'objective_function_predict': 192.0, 'beta': None, 'alpha': None, 'repeated_config': True, 'suboptimal': None, 'converged': None, 'safe_transfer_learning': None}
+INSERT application_1759654566654_0084_lda_large documents into MongoDB
+
+=== Metrics (10 iterations / real evals) — TurBO baseline ===
+T best ↓ : 209.00  (found at i=7)
+T first ↓: 279.00
+SU (%) ↑ : 0.48
+TC ↓     : 4116.00
+Hit@0.10 ↑ : 0.00
+nAOCC ↓  : 0.9694
+

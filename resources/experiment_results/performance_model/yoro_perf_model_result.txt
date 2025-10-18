@@ -1,0 +1,17 @@
+yoro_perf_model_runner.py"
+
+Characterized workloads:
+	# samples: 800
+	# workload characterization vector size: 76
+	# setting vector size: 7
+	# unique workloads: 20
+
+LOGOCV (micro/pooled over all left-out groups):
+	MAE: 345.729 | RMSE: 790.041 | P95: 1695.334 | Max: 5908.420
+	Kendall tau (fold-agg): 0.375 | Precision@10 (fold-agg): 0.570 | ESR_mu (fold-avg): 202.950
+
+LOGOCV (macro mean ± std across groups):
+	MAE: 345.729 ± 498.043 | RMSE: 435.791 ± 658.977
+	P95(avg): 840.719 | Max(avg): 965.786
+	Kendall tau(avg): 0.375 | Precision@10(avg): 0.570 | ESR_mu(avg): 202.950
+
