@@ -1,5 +1,5 @@
 [project]
-name = "Spark Self-Tuning Framework (STL-PARN–ILS–TS–BO)"
+name = "Spark-Self-Tuning-Framework"
 version = "0.1.0"
 description = "A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning for continuous Spark tuning"
 authors = [
