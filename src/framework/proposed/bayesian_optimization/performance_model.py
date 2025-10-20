@@ -54,34 +54,9 @@ class SupervisedStage:
             ('lr', LinearRegression(positive=True)) # fit_intercept=True
         ])
 
-        # pipeline = Pipeline([
-        #     ('feature_scaler', MinMaxScaler()),
-        #     ('lr', Ridge(alpha=1.0, positive=False, random_state=0))
-        # ])
-
-        # --- Transform target in log1p scale ---
-        log_transformer = FunctionTransformer(func=np.log1p,
-                                              inverse_func=np.expm1,
-                                              validate=True)
-        # regressor = TransformedTargetRegressor(
-        #     regressor=pipeline,
-        #     transformer=log_transformer,
-        #     check_inverse=True
-        # )
-
         regressor = TransformedTargetRegressor(
             regressor=pipeline,
-            # transformer=transformer,
-            # transformer=PowerTransformer(method="yeo-johnson"),
-            # transformer=log_transformer,
             transformer= None,
-            # transformer=QuantileTransformer(
-            #     # n_quantiles=n_quantiles,
-            #     output_distribution="uniform",  # Or "normal" if Gaussian target
-            #     # subsample=None,                 # Use all data
-            #     random_state=42
-            # ),
-            # check_inverse=True #  Ensures or not inverse transformation is applied to predictions
         )
 
         if sample_weight is not None:
@@ -173,71 +148,6 @@ class SupervisedStage:
 
         feature_scaler: MinMaxScaler = regressor.regressor_.named_steps['feature_scaler']
         return regressor, feature_scaler, float(np.min(y)), float(np.max(y))
-
-    def get_ridge_regressor_model_GridSearch(
-            self,
-            X: np.ndarray,
-            y: np.ndarray,
-            *,
-            random_state: int = 42,
-            sample_weight: Optional[np.ndarray] = None
-    ) -> Tuple[TransformedTargetRegressor, MinMaxScaler, float, float, float]:
-        """
-        Ridge con GridSearchCV sobre alpha y objetivo log-transformado.
-
-        Devuelve:
-          - regressor: TransformedTargetRegressor ya ajustado (con GridSearchCV dentro)
-          - feature_scaler: MinMaxScaler ajustado a X
-          - y_min, y_max: extremos de y (útiles para post-procesado)
-          - best_alpha: alpha ganador del grid
-        """
-        # Pipeline: escalado de X + Ridge
-        steps = [
-            ('feature_scaler', MinMaxScaler()),
-            ('ridge', Ridge(random_state=random_state))
-        ]
-        pipeline = Pipeline(steps)
-
-        # Grid conservador para alpha (puedes ampliar si lo deseas)
-        param_grid = {'ridge__alpha': [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 2, 3, 10, 30, 100, 300]
-                      }
-        # CV estable y reproducible
-        cv = KFold(n_splits=3, shuffle=True, random_state=random_state)
-
-        grid = GridSearchCV(
-            estimator=pipeline,
-            param_grid=param_grid,
-            cv=cv,
-            n_jobs=-1,
-            scoring='neg_mean_absolute_error',  # robusto para tiempos
-            refit=True
-        )
-
-        # Log1p/expm1 sobre el objetivo (mejora estabilidad si hay colas)
-        log_transformer = FunctionTransformer(func=np.log1p, inverse_func=np.expm1, validate=False)
-
-        regressor = TransformedTargetRegressor(
-            regressor=grid,
-            # transformer=log_transformer,
-            transformer=None,
-            check_inverse=False
-        )
-
-        # Fit params: TTR pasa kwargs a grid.fit(...), que a su vez los pasa al pipeline
-        fit_params = {}
-        if sample_weight is not None:
-            fit_params['ridge__sample_weight'] = np.asarray(sample_weight, dtype=float).ravel()
-
-        regressor.fit(X, y, **fit_params)
-
-        # Extraer scaler y alpha ganador
-        best_est = regressor.regressor_.best_estimator_  # Pipeline
-        feature_scaler: MinMaxScaler = best_est.named_steps['feature_scaler']
-        best_alpha: float = regressor.regressor_.best_params_['ridge__alpha']
-
-        print(f"Best alpha in Ridge: {best_alpha}")
-
-        return regressor, feature_scaler, float(np.min(y)), float(np.max(y)), float(best_alpha)
 
     def get_gamma_regressor_model_GridSearch(
             self,
@@ -472,10 +382,8 @@ class SupervisedStage:
         base_et = ExtraTreesRegressor(
             n_estimators=n_estimators,
             random_state=42,
-            # bootstrap=False,        # all trees see full data; randomness from split thresholds
-            # max_features="sqrt",
-            min_samples_leaf=1, #3
-            min_samples_split=2, # add
+            min_samples_leaf=1, 
+            min_samples_split=2,
             max_depth=None,
             n_jobs=-1,
         )
@@ -771,44 +679,6 @@ class SupervisedStage:
         feature_scaler: StandardScaler = regressor.regressor_.named_steps['feature_scaler']
         return regressor, feature_scaler, float(np.min(y)), float(np.max(y))
 
-    def get_bayesian_ridge_regressor_model_old(
-            self,
-            X: np.ndarray,
-            y: np.ndarray,
-            *,
-            sample_weight: Optional[np.ndarray] = None
-    ) -> Tuple[TransformedTargetRegressor, MinMaxScaler, float, float]:
-        """
-        Bayesian Ridge regression para μ entrenado en log1p(y) (via TTR) y devuelve predicciones en T_R.
-
-        Args:
-          X: matriz de características.
-          y: objetivo en escala natural.
-          sample_weight: pesos opcionales.
-
-        Returns:
-          (regressor_TTR, fitted_feature_scaler, y_min, y_max)
-        """
-        steps = [('feature_scaler', MinMaxScaler()),
-                 ('br', BayesianRidge())]
-        pipeline = Pipeline(steps)
-
-        log_transformer = FunctionTransformer(func=np.log1p, inverse_func=np.expm1, validate=True)
-
-        regressor = TransformedTargetRegressor(
-            regressor=pipeline,
-            transformer=log_transformer,
-            check_inverse=True
-        )
-
-        if sample_weight is not None:
-            regressor.fit(X, y, br__sample_weight=np.asarray(sample_weight, dtype=float).ravel())
-        else:
-            regressor.fit(X, y)
-
-        feature_scaler: MinMaxScaler = regressor.regressor_.named_steps['feature_scaler']
-        return regressor, feature_scaler, float(np.min(y)), float(np.max(y))
-
     def get_bayesian_ridge_regressor_model(
             self,
             X: np.ndarray,
@@ -852,45 +722,6 @@ class SupervisedStage:
         regressor.fit(X, y, **fit_params)
 
         feature_scaler: MinMaxScaler = regressor.regressor_.named_steps['feature_scaler']
-        return regressor, feature_scaler, float(np.min(y)), float(np.max(y))
-
-    # -----------------------------------------------
-    # Gaussian Process Regressor
-    # -----------------------------------------------
-    def get_gaussian_process_regressor_model_(
-            self,
-            X: np.ndarray,
-            y: np.ndarray,
-            *,
-            sample_weight: Optional[np.ndarray] = None
-    ) -> tuple[TransformedTargetRegressor, StandardScaler, float, float]:
-        """
-        Gaussian Process regression para μ entrenado en log1p(y) (via TTR) y devuelve predicciones en T_R.
-        """
-        kernel = Matern()
-        steps = [
-            ('feature_scaler', StandardScaler()),
-            ('gp', GaussianProcessRegressor(kernel=kernel, random_state=42))
-        ]
-        pipeline = Pipeline(steps)
-
-        log_transformer = FunctionTransformer(func=np.log1p, inverse_func=np.expm1, validate=True)
-
-        regressor = TransformedTargetRegressor(
-            regressor=pipeline,
-            transformer=log_transformer,
-            check_inverse=True
-        )
-
-        # fit_params = {}
-        # if sample_weight is not None:
-        #     fit_params['gp__sample_weight'] = np.asarray(sample_weight, dtype=float).ravel()
-        #
-        # regressor.fit(X, y, **fit_params)
-
-        regressor.fit(X, y)
-
-        feature_scaler: StandardScaler = regressor.regressor_.named_steps['feature_scaler']
         return regressor, feature_scaler, float(np.min(y)), float(np.max(y))
 
     def get_gaussian_process_regressor_model(
@@ -1011,8 +842,6 @@ class SupervisedStage:
 
             fit_params = {}
             if sample_weight is not None:
-                # IMPORTANTE: TransformedTargetRegressor → prefijar 'regressor__' y luego el nombre en el Pipeline
-                # fit_params['regressor__br__sample_weight'] = np.asarray(sample_weight, dtype=float).ravel()
                 fit_params['br__sample_weight'] = np.asarray(sample_weight, dtype=float).ravel()
 
             ttr.fit(X, y, **fit_params)
@@ -1112,120 +941,6 @@ class PerformanceModel:
 
         self.weights_diff_threshold: int = 0
 
-    # def train(
-    #         self,
-    #         workload_descriptors: np.ndarray,
-    #         configuration_settings: np.ndarray,
-    #         execution_times: np.ndarray,
-    #         input_data_ref: np.ndarray,
-    #         workload_ref: np.ndarray,
-    #         # new_configuration_settings: np.ndarray,
-    #         execution_time_ref: np.ndarray,
-    #         # k_min: int,
-    #         k_limit: int
-    # ) -> tuple:
-    #     """
-    #     Instance of the performance model to use in inferencing
-    #
-    #     :param execution_time_ref:
-    #     :param k_limit:
-    #     :param workload_descriptors: Garralda-descriptors
-    #     :param configuration_settings:
-    #     :param execution_times:
-    #     :param workload_ref:
-    #     :param k_min: minimum number of neighbors
-    #     :param k_max: maximum number of neighbors
-    #     :param eebc_weight: Proportion for the quality and distance
-    #     :return: prediction
-    #     """
-    #
-    #     # return (
-    #     #     idx_SL,            # S_L
-    #     #     idx_S_LE,          # S_{L+E}
-    #     #     idx_SE,            # S_E
-    #     #     w_S_LE_soft,       # NEW: sample_weight (suave) para entrenamiento por defecto
-    #     #     k_min,
-    #     #     k_opt,
-    #     #     k_knee,
-    #     #     w_S_LE_hard,       # NEW: pesos duros (0 exactos) para ablation
-    #     #     mask_S_LE_disc     # NEW: máscara de descartes (alineada con S_{L+E})
-    #     # )
-    #
-    #     (
-    #         idx_SL,
-    #         idx_S_LE,
-    #         idx_SE,
-    #         w_S_LE_soft,
-    #         k_min,
-    #         k_opt,
-    #         k_knee,
-    #         w_S_LE_hard,
-    #         mask_S_LE_disc
-    #     ) = self.safe_transfer_learning_stage.get_optimal_insightful_neighbors(
-    #         workload_descriptors,
-    #         execution_times,
-    #         workload_ref,
-    #         execution_time_ref,
-    #         # k_min,
-    #         k_limit,
-    #     )
-    #
-    #     X_train_opt = configuration_settings[idx_SL]
-    #     y_train_opt = execution_times[idx_SL]
-    #
-    #     X_train_k_opt_k_knee = configuration_settings[idx_SE]
-    #     y_train_k_opt_k_knee = execution_times[idx_SE]
-    #
-    #     # regressor, scaler, y_min, y_max = self.supervised_stage.get_non_negative_least_squares_regressor_model(
-    #     #     X=X_train_opt,
-    #     #     y=y_train_opt
-    #     # )
-    #
-    #     # regressor, scaler = self.supervised_stage.get_bayesian_ridge(
-    #     #     X=X_train_opt,
-    #     #     y=y_train_opt
-    #     # )
-    #
-    #     regressor, scaler = self.supervised_stage.get_random_forest_regressor_model(
-    #         X=X_train_opt,
-    #         y=y_train_opt
-    #         # X=X_train_k_knee,
-    #         # y=y_train_k_knee
-    #     )
-    #
-    #     # regressor = self.supervised_stage.get_adaboost_regressor_model(
-    #     #     X=X_train_opt,
-    #     #     y=y_train_opt
-    #     # )
-    #
-    #     # regressor = self.supervised_stage.get_gradientboosting_regressor_model(
-    #     #     X=X_train_opt,
-    #     #     y=y_train_opt
-    #     # )
-    #     #
-    #     # regressor, scaler = self.supervised_stage.get_gaussian_process_regressor_model(
-    #     #     X=X_train_opt,
-    #     #     y=y_train_opt
-    #     # )
-    #
-    #     return regressor, scaler, k_opt, k_knee, X_train_k_opt_k_knee, y_train_k_opt_k_knee
-
-
-    # idx_T, idx_C = stl.build_zones(
-    #     workload_descriptors=W100,    # (n,100)
-    #     objective_values=T_raw,       # (n,)
-    #     data_sizes=S_bytes,           # (n,)
-    #     workload_ref=w_ref100,        # (100,)
-    #     objective_ref=T_ref,          # scalar
-    #     data_size_ref=S_ref,          # scalar bytes
-    #     ids_mode="beta-aware",
-    #     # opcionales (si los tienes):
-    #     X_phi_cs=phi_all,             # (n,4)
-    #     x_phi_ref=phi_ref.reshape(1, -1),  # (1,4)
-    #     rho_vec=(rho_all if beta==1 else None),
-    #     rho_ref=(rho_ref if beta==1 else None),
-    # )
-
     def fit_predict(
             self,
             workload_descriptors: np.ndarray,
@@ -1260,28 +975,9 @@ class PerformanceModel:
         :return: prediction
         """
 
-        # return (idx_SL, idx_S_LE, idx_SE, k_min, int(k_opt), int(k_knee))
-
-
-        # workload_descriptors: np.ndarray,   # (n,100)
-        # objective_values: np.ndarray,       # (n,) raw T or T_R; we use j = log1p(T)
-        # data_sizes: np.ndarray,             # (n,) bytes
-        # workload_ref: np.ndarray,           # (100,)
-        # objective_ref: float,               # scalar T (or T_R)
-        # data_size_ref: float,               # bytes
-        # *,
-        # k_limit: Optional[int] = None,
-        # ids_mode: Literal["s3", "pat", "pat+time", "pat+trend", "b-aware"] = "b-aware",
-        # jackknife: bool = False,            # <-- TRIAL: do NOT exclude the target (default False)
-        # # --- opcionales (no rompen API)
-        # X_phi_cs: Optional[np.ndarray] = None,  # (n,4) shape for each row
-        # x_phi_ref: Optional[np.ndarray] = None, # (1,4) shape for target
-        # rho_vec: Optional[np.ndarray] = None,   # (n,) rho for each row (only if beta=1)
-        # rho_ref: Optional[float] = None,        # scalar rho for target
-
         (
-            idx_SL,            # S_L
-            idx_S_LE,          # S_{L+E}
+            idx_SL,            # N
+            idx_S_LE,          # N+C
         ) = self.safe_transfer_learning_stage.build_zones(
             workload_descriptors,
             execution_times,
@@ -1289,78 +985,15 @@ class PerformanceModel:
             workload_ref,
             execution_time_ref,
             input_data_size_ref,
-            # X_phi_cs=worload_config_shapes,
-            # x_phi_ref=workload_config_shape_ref.reshape(1, -1),
-            # rho=workload_resources,
-            # rho_ref=execution_resources_ref,
         )
 
-        # print(f"{self.safe_transfer_learning_stage.last_weights=}")
-
-        idx_N, w_N = self.safe_transfer_learning_stage.last_weights["N"]   # (indices_del_T, pesos_T)
-        idx_C_w, w_C = self.safe_transfer_learning_stage.last_weights["C"]   # (indices_de_C, pesos_C)
-
-        # print(f"{np.count_nonzero(w_N)=} non-zero weights in target zone (out of {len(w_N)})")
-        # indices_no_cero = np.nonzero(w_N)[0]
-        # idx_N = idx_N[indices_no_cero]
-        # w_sl = w_N[indices_no_cero]
+        idx_N, w_N = self.safe_transfer_learning_stage.last_weights["N"]  
+        idx_C_w, w_C = self.safe_transfer_learning_stage.last_weights["C"] 
 
         X_train = configuration_settings[idx_N]
         y_train = execution_times[idx_N]
         ids_sl = input_data_sizes[idx_N]
         wn_sl = workload_names[idx_N]
-
-        # (opcional) normalizar pesos para estabilizar el ajuste
-        # w_N = w_N / (w_N.mean() + 1e-12)
-
-        # print(f"{np.count_nonzero(w_N)=} non-zero weights in target zone (out of {len(w_N)})")
-
-        # w_N = np.maximum(w_N, 0.2)
-
-        # X_phi_cs: Optional[np.ndarray] = None,  # (n,4) shape for each row
-        # x_phi_ref: Optional[np.ndarray] = None, # (1,4) shape for target
-        # rho_vec: Optional[np.ndarray] = None,   # (n,) rho for each row (only if beta=1)
-        # rho_ref: Optional[float] = None,        # scalar rho for target
-
-
-        # scores = self.safe_transfer_learning_stage.evaluate_pattern_retrieval(
-        #     workload_descriptors, execution_times, labels=workload_names, groups=None, cv="LOGOCV", k=5, use_time=False  # True para pat+time
-        # )
-        # print(scores)
-
-        # print(f"*******************************************************************************************************************")
-
-        # print(f"{self.safe_transfer_learning_stage.get_last_debug()}")
-
-        # (
-        #     idx_SL,            # S_L
-        #     idx_S_LE,          # S_{L+E}
-        #     idx_SE,            # S_E
-        #     k_min,
-        #     k_opt,
-        #     k_knee,
-        # ) = self.safe_transfer_learning_stage.get_optimal_insightful_neighbors(
-        #     workload_descriptors,
-        #     execution_times,
-        #     input_data_sizes,
-        #     workload_ref,
-        #     execution_time_ref,
-        #     input_data_size_ref,
-        #     # k_min,
-        #     k_limit
-        # )
-
-        # self.audit_stl_selection(idx_SL, idx_S_LE, idx_SE,
-        #                          configuration_settings, execution_times, input_data_sizes)
-
-        # print(f"{len(idx_SL)=} | {len(idx_SE)=} | {len(idx_S_LE)=} | {k_min=} | {k_opt=} | {k_knee=}")
-
-        # X_train = configuration_settings[idx_N]
-        # y_train = execution_times[idx_N]
-        # ids_sl = input_data_sizes[idx_SL]
-        # wn_sl = workload_names[idx_SL]
-
-        # print(f"Safe Transfer Learning:\n{X_train=}\n{y_train=}")
 
         X_train_k_knee = np.vstack([X_train, configuration_settings[idx_S_LE]])
         y_train_k_knee = np.hstack([y_train, execution_times[idx_S_LE]])
@@ -1373,177 +1006,11 @@ class PerformanceModel:
         ids_sle = input_data_sizes[idx_S_LE]
         wn_sle = workload_names[idx_S_LE]
 
-        # size_unit = self.safe_transfer_learning_stage.size_unit
-        # # w_sl = self.soft_size_weights(ids_sl, input_data_size_ref, size_unit)
-        # idx_N, w_sl = self.safe_transfer_learning_stage.last_weights["T"]   # (indices_del_T, pesos_T)
-        #
-        # print(f"{np.count_nonzero(w_N)=} non-zero weights in target zone (out of {len(w_N)})")
-        # indices_no_cero = np.nonzero(w_sl)[0]
-        # idx_N = idx_N[indices_no_cero]
-        # w_sl = w_sl[indices_no_cero]
-        #
-        # X_train = configuration_settings[idx_N]
-        # y_train = execution_times[idx_N]
-        # ids_sl = input_data_sizes[idx_N]
-        # wn_sl = workload_names[idx_N]
-
-
-        # print(f"{y_train=}")
-        # print(f"{y_train_k_opt_k_knee=}")
-
-
-        # w_N, _ = self.perf_utils.make_weights_for_N(X_train, y_train, return_group_stats=False)
-        # ridge_mu.fit(X_N, y_N, ridge__sample_weight=w_N)  # si usas Pipeline/TransformedTargetRegressor
-        # print(f"{w_N=}")
-
-
-        # print(f"{cv=}")
-        # input_data_size_ref_gb =  input_data_size_ref / 1024**3
-        # print(f"Reference workload:")
-        # print(f"x_ref={configuration_settings_ref} | y_ref={int(execution_time_ref)} | ids_ref={input_data_size_ref_gb} GB\n")
-        # print(f"{len(X_train)=}================")
-        # if cv=="LOGOCV":
-        #     print(f"Training with S_L ({cv}):")
-        #     print(f"{np.count_nonzero(w_N)=} non-zero weights in target zone (out of {len(w_N)})")
-        #     for x, y, i, w, wn in zip(X_train, y_train, ids_sl, w_N, wn_sl):
-        #         i =  round(i / 1024**3, 2)
-        #         print(f"x={str(x):<30} y={int(y):<6} ids={i} GB | weight={w:.5f} | wl={wn}")
-        #     # print(f"{len(X_train_k_opt_k_knee)=}===============")
-        #     # for x, y, i, w in zip(X_train_k_opt_k_knee, y_train_k_opt_k_knee, ids_sle, wn_sle):
-        #     #     i =  round(i / 1024**3, 2)
-        #     #     print(f"x={str(x):<30} y={int(y):<6} ids={i} GB | wl={w}")
-
-
-        # print(f"{self.safe_transfer_learning_stage.get_last_debug()}")
-
-        # To know if there are some value different than 1.0 and print only if so
-        # if not np.allclose(w_N, 1.0):
-        #     self.weights_diff_threshold += 1
-        #     # print(f"{w_N=}")
-
-        # print(f"{w_N=}")
-
-        # w_C, stats_C = make_weights_for_CX_C, y_C, return_group_stats=True)
-        # ridge_mu.fit(X_C, y_C, ridge__sample_weight=w_C)
-
-
-        # X_train, y_train = self.perf_utils.aggregate_cognition_by_cs_median(X_train, y_train)
-
-        # Check
-        # GammaRegressor (link log) o PoissonRegressor
-
-        #
-        # regressor, *_  = self.supervised_stage.get_non_negative_least_squares_regressor_model(
-        #     # X=X_train_added_the_ref,
-        #     # y=y_train_added_the_ref,
-        #     X=X_train,
-        #     y=y_train,
-        #     # X=X_train_k_knee,
-        #     # y=y_train_k_knee,
-        #     # X=X_train_k_opt_k_knee,
-        #     # y=y_train_k_opt_k_knee
-        #     # sample_weight= None
-        #     # sample_weight= w_N
-        # )
-
         regressor, *_  = self.supervised_stage.get_ridge_regressor_model(
             X=X_train,
             y=y_train,
             sample_weight=w_N,
-            # X=X_train_k_knee,
-            # y=y_train_k_knee,
-            # sample_weight=w_TC
-            # X=X_train_k_opt_k_knee,
-            # y=y_train_k_opt_k_knee,
-            # sample_weight=w_C
         )
-
-        # regressor, *_ = self.supervised_stage.get_bayesian_ridge_regressor_model(
-        #     X=X_train,
-        #     y=y_train,
-        #     # X=X_train_k_knee,
-        #     # y=y_train_k_knee,
-        #     sample_weight=w_N
-        # )
-
-        # regressor, *_ = self.supervised_stage.get_random_forest_regressor_model(
-        #     X=X_train,
-        #     y=y_train,
-        #     sample_weight=w_N
-        # )
-
-        # regressor, *_  = self.supervised_stage.get_gamma_regressor_model(
-        #     X=X_train,
-        #     y=y_train,
-        #     sample_weight=w_N,
-        #     # X=X_train_k_knee,
-        #     # y=y_train_k_knee,
-        #     # sample_weight=w_TC
-        #     # X=X_train_k_opt_k_knee,
-        #     # y=y_train_k_opt_k_knee,
-        #     # sample_weight=w_C
-        # )
-
-        # regressor, *_  = self.supervised_stage.get_poisson_regressor_model(
-        #     X=X_train,
-        #     y=y_train,
-        #     sample_weight=w_N,
-        # )
-
-        # regressor, *_  = self.supervised_stage.get_extra_trees_regressor_model(
-        #     X=X_train,
-        #     y=y_train,
-        #     sample_weight=w_N
-        #     # X=X_train_k_knee,
-        #     # y=y_train_k_knee,
-        #     # sample_weight=w_TC
-        #     # X=X_train_k_opt_k_knee,
-        #     # y=y_train_k_opt_k_knee,
-        #     # sample_weight=w_C
-        # )
-
-        # regressor, *_  = self.supervised_stage.get_extra_trees_regressor_model_gridsearch(
-        #     X=X_train,
-        #     y=y_train,
-        #     sample_weight=w_N
-        # )
-
-        # regressor, _ = self.supervised_stage.get_random_forest_regressor_model(
-        #     # X=X_train,
-        #     # y=y_train,
-        #     # sample_weight=w_N
-        #     X=X_train_k_knee,
-        #     y=y_train_k_knee,
-        #     # X=X_train_k_opt_k_knee,
-        #     # y=y_train_k_opt_k_knee
-        #     # sample_weight= None
-        #     # sample_weight= w_S_LE_hard
-        #     # sample_weight= 1.0
-        # )
-
-        # regressor = self.supervised_stage.get_adaboost_regressor_model(
-        #     X=X_train,
-        #     y=y_train
-        # )
-        #
-        # regressor, *_ = self.supervised_stage.get_gradientboosting_regressor_model(
-        #     # X=X_train,
-        #     # y=y_train,
-        #     X=X_train_k_knee,
-        #     y=y_train_k_knee,
-        #     # sample_weight=w_C
-        # )
-        # #
-        # regressor, *_ = self.supervised_stage.get_gaussian_process_regressor_model(
-        #     X=X_train,
-        #     y=y_train
-        #     # X=X_train_k_knee,
-        #     # y=y_train_k_knee
-        #     # X=X_train_k_opt_k_knee,
-        #     # y=y_train_k_opt_k_knee
-        #     # X=configuration_settings,
-        #     # y=execution_times
-        # )
 
         # Check if the new_configuration_settings is a 1D array, thus only sent a single configuration setting to fit_predict
         if configuration_settings_ref.ndim == 1:
@@ -1570,37 +1037,6 @@ class PerformanceModel:
         return w
 
     @staticmethod
-    def soft_size_weights_(ids_N, ids_star, size_unit, aggressive=True):
-        """
-        Data-driven weights for size mismatch.
-        s = log1p(ids / size_unit).
-        r_i = |s_i - s*|.
-        Scale = max( median(r), MAD(r) ) to evitar divisiones por escala ~0.
-        Normalization: r_n = r / (scale + eps).
-        Weights: 1 / (1 + r_n)   (suave)  ó  1 / (1 + r_n**2)  (más agresiva, sin knobs).
-        Garantiza w=1 si r_i=0 (tamaño idéntico).
-        """
-
-        s_N    = np.log1p(ids_N.astype(float) / float(size_unit))
-        s_star = np.log1p(float(ids_star) / float(size_unit))
-
-        r = np.abs(s_N - s_star)
-
-        # Escala robusta (sin parámetros) con suelo numérico
-        med_r = np.median(r)
-        mad_r = np.median(np.abs(r - med_r))
-        scale = max(med_r, mad_r, 1e-6)
-
-        r_n = r / scale
-
-        if aggressive:
-            w = 1.0 / (1.0 + r_n**2)   # cae más rápido lejos del target
-        else:
-            w = 1.0 / (1.0 + r_n)      # versión suave original
-
-        return w
-
-    @staticmethod
     def compute_training_residuals(
             regressor,
             X_train_k_opt_k_knee,
@@ -1612,7 +1048,6 @@ class PerformanceModel:
         """
         y_pred = regressor.predict(X_train_k_opt_k_knee)
         residuals = np.abs(y_train_k_opt_k_knee - y_pred)
-        # print(f"{residuals=}")
         return residuals
 
     @staticmethod
