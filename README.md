@@ -92,7 +92,7 @@ Please cite the following article when using this framework or its components:
 ## 📬 Contact
 
 For questions, collaborations, or feedback, please contact:  
-**Mariano Garralda Barrio**  
+**Mariano Garralda**  
 [mariano.garralda@udc.es](mailto:mariano.garralda@udc.es)  
 Universidade da Coruña (UDC) · CITIC
 
