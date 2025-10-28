@@ -3,7 +3,7 @@
 Implementation of the framework proposed in  
 **“A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning for continuous Spark tuning”**  
 (*Future Generation Computer Systems*, 2025).  
-[![DOI](https://zenodo.org/badge/DOI/10.1016/j.future.2025.107730.svg)](https://doi.org/10.1016/j.future.2025.107730)
+DOI: https://dx.doi.org/10.2139/ssrn.5669295
 
 ---
 
