@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Spark Self-Tuning Framework (STL-PARN–ILS–TS–BO)"
+title: "Spark Self-Tuning Framework (STL–ILS–TS–BO)"
 abstract: >
   Implementation of the framework proposed in the article
   "A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning
@@ -9,7 +9,7 @@ authors:
   - family-names: Garralda-Barrio
     given-names: Mariano
     affiliation: "Universidade da Coruña (UDC), CITIC"
-    orcid: "0000-0002-XXXX-XXXX"   # opcional si tienes ORCID
+    orcid: "0009-0008-0201-2984   # opcional si tienes ORCID
   - family-names: Eiras-Franco
     given-names: Carlos
     affiliation: "Universidade da Coruña (UDC)"
@@ -38,5 +38,5 @@ preferred-citation:
   journal: "Future Generation Computer Systems"
   year: 2025
   pages: 107730
-  doi: "https://doi.org/10.1016/j.future.2025.107730"
-  url: "https://www.sciencedirect.com/science/article/pii/S0167739X25000251"
+  doi: "https://dx.doi.org/10.2139/ssrn.5669295"
+  url: "http://ssrn.com/abstract=5669295"
