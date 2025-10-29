@@ -79,8 +79,7 @@ Please cite the following article when using this framework or its components:
     pages     = {107730},
     year      = {2025},
     issn      = {0167-739X},
-    doi       = {https://doi.org/10.1016/j.future.2025.107730},
-    url       = {https://www.sciencedirect.com/science/article/pii/S0167739X25000251},
+    doi       = {https://dx.doi.org/10.2139/ssrn.5669295},
     publisher = {Elsevier},
     note      = {Code available at \url{https://github.com/mgarralda/spark-self-tuning-framework}},
     keywords  = {Performance modeling, Big data, Machine learning, Apache Spark, Distributed computing}
