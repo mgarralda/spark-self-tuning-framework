@@ -1,4 +1,4 @@
-# Spark Self-Tuning Framework (STL-PARN–ILS–TS–BO)
+# Spark Self-Tuning Framework (STL–ILS–TS–BO)
 
 Implementation of the framework proposed in  
 **“A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning for continuous Spark tuning”**  
