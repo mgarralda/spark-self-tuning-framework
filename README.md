@@ -3,7 +3,7 @@
 Implementation of the framework proposed in  
 **“A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning for continuous Spark tuning”**  
 (*Future Generation Computer Systems*, 2025).  
-DOI: https://dx.doi.org/10.2139/ssrn.5669295
+DOI: https://doi.org/10.1016/j.future.2025.108325
 
 ---
 
@@ -73,13 +73,13 @@ Please cite the following article when using this framework or its components:
 
 ```bibtex
 @article{GarraldaBarrio2025,
-    title     = {A hybrid metaheuristics–Bayesian Optimization framework with safe transfer learning for continuous Spark tuning},
+    title     = {A hybrid metaheuristics–Bayesian optimization framework with safe transfer learning for continuous spark tuning},
     author    = {Mariano Garralda-Barrio and Carlos Eiras-Franco and Verónica Bolón-Canedo},
     journal   = {Future Generation Computer Systems},
-    pages     = {107730},
+    pages     = {108325},
     year      = {2025},
     issn      = {0167-739X},
-    doi       = {https://dx.doi.org/10.2139/ssrn.5669295},
+    doi       = {https://doi.org/10.1016/j.future.2025.108325}
     publisher = {Elsevier},
     note      = {Code available at \url{https://github.com/mgarralda/spark-self-tuning-framework}},
     keywords  = {Performance modeling, Big data, Machine learning, Apache Spark, Distributed computing}
