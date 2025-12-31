@@ -1,6 +1,5 @@
 # -----------------------------------------------------------------------------
 #  Project: Spark Self-Tuning Framework (STL-PARN-ILS-TS-BO)
-#  File: yoro_perf_model_runner.py
 #  Copyright (c) 2025 Mariano Garralda Barrio
 #  Affiliation: Universidade da Coruña
 #  SPDX-License-Identifier: CC-BY-NC-4.0 OR LicenseRef-Commercial
