@@ -69,7 +69,9 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 📚 Citation
 
-Please cite the following article when using this framework or its components:
+If you use this framework, its methodology, infrastructure, datasets, or derived components in research, benchmarking studies, technical documentation, or industrial reports, please cite the associated article and/or doctoral thesis.
+
+### Article
 
 ```bibtex
 @article{GarraldaBarrio2025,
@@ -79,12 +81,37 @@ Please cite the following article when using this framework or its components:
     pages     = {108325},
     year      = {2025},
     issn      = {0167-739X},
-    doi       = {https://doi.org/10.1016/j.future.2025.108325}
+    doi       = {https://doi.org/10.1016/j.future.2025.108325},
     publisher = {Elsevier},
     note      = {Code available at \url{https://github.com/mgarralda/spark-self-tuning-framework}},
     keywords  = {Performance modeling, Big data, Machine learning, Apache Spark, Distributed computing}
 }
 ```
+
+### Doctoral Thesis
+
+```bibtex
+@phdthesis{GarraldaBarrio2026,
+    author    = {Mariano Garralda Barrio},
+    title     = {AI-Driven Optimization in Distributed Computing Systems: A Self-Tuning Framework},
+    school    = {University of Coruña},
+    year      = {2026},
+    type      = {Doctoral Thesis},
+    url       = {https://hdl.handle.net/2183/48114}
+}
+```
+
+### References
+
+- Garralda-Barrio, M., Eiras-Franco, C., & Bolón-Canedo, V. (2025).  
+  *A hybrid metaheuristics–Bayesian optimization framework with safe transfer learning for continuous Spark tuning*.  
+  Future Generation Computer Systems.  
+  https://doi.org/10.1016/j.future.2025.108325
+
+- Garralda Barrio, M. (2026).  
+  *AI-Driven Optimization in Distributed Computing Systems: A Self-Tuning Framework*.  
+  Doctoral Thesis, University of Coruña.  
+  https://hdl.handle.net/2183/48114
 
 ---
 
